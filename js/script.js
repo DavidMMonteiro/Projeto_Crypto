@@ -1,101 +1,56 @@
 'use strict';
 
-var i = 1;
-var o = 2;
-var name = "Temporal Name";
+var apikey = "";//TODO Get API Key
+//var cloneMedia = $('.media').clone();
 
-/* Ex 2
-	name = prompt("Nome do utilizador", "Insira o seu nome:")
-	alert("Olá " + name + ", seja bem-vindo.")
-	document.addEventListener("DOMContent")*/
+class moeda{
+    constructor(rank, nome, valor, fav) {
+        this.rank = rank;
+        this.nome = nome;
+        this.valor = valor;
+        this.fav = fav;
+    }
+};
 
-/* Ex 3
-function hideAndShowImg(image) {
-	var visibility = document.getElementById(image).style.visibility;
-	if (visibility == 'hidden') document.getElementById(image).style.visibility = 'visible';
-	else document.getElementById(image).style.visibility = 'hidden';
-}
+$('#btTry').mouseover(console.log("Over Button"));
 
-function hideImg(image) {
-	document.getElementById(image).style.height = '0px';
-	document.getElementById(image).style.width = '0px';
-}
+$('#btTry').on('click', function (){
+    console.log("Button Click");
+    //var corpo_tabela = $('#corpo-tabela');
+    let moedas = [new moeda(1,"Moeda 1", 20.00), new moeda(2, "Moeda 2", 15.00)];
+    moedas.each(function(coin_test){
+        console.log("Info Coin: \nRank:"+coin_test.rank+"\n");
+        //var line = "<tr><td>"+ coin_test.rank+"</td><td>"+coin_test.nome+"</td><td>"+coin_test.valor+"</td><td>"+coin_test.fav?"T":"F"+"</td></tr>";
+        //corpo_tabela.append(line);
+    })
+});
 
-function showImg(image) {
-	document.getElementById(image).style.height = '400px';
-	document.getElementById(image).style.width = '400px';
-}*/
+//Procura informação da crypto inserida
+$('#btSearch').on('click', function() {
 
-/* Ex4
-var imgArray = new Array();
+	var valuePesquisa = $('#search_info').val();
+	$('.media-list').empty();
+	$('.panel-title').text('Resultados da pesquisa ' 
+		+ valuePesquisa);
 
-imgArray[0] = new Image();
-imgArray[0].src = 'imgs/tree_1.jfif';
+	$.ajax({
+		method: "GET",
+		url: "http://www.omdbapi.com/" 
+			+ "?apikey=" + apikey + "&s=" + valuePesquisa
+	}).done(function(res){
+		console.log(res);
 
-imgArray[1] = new Image();
-imgArray[1].src = 'imgs/tree_2.jfif';
-
-imgArray[2] = new Image();
-imgArray[2].src = 'imgs/tree_3.jfif';
-
-imgArray[3] = new Image();
-imgArray[3].src = 'imgs/tree_4.jfif';
-
-imgArray[4] = new Image();
-imgArray[4].src = 'imgs/tree_5.jfif';
-
-imgArray[5] = new Image();
-imgArray[5].src = 'imgs/tree_6.jfif';
-
-var currentImg = 0;
-var timer;
-
-function nextImg(element)
-{
-    currentImg++;
-	if (currentImg > imgArray.length) currentImg = 0;
-	document.getElementById('mainImg').src = imgArray[currentImg].src;
-}
-document.getElementById('nextButton').addEventListener('click', nextImg());
-
-function stopImg() {
-	clearInterval(timer);
-}
-document.getElementById('stopButton').addEventListener('click', stopImg());
-
-function restartCicle() {
-	timer = setInterval(nextImg(), 2000);
-}
-document.getElementById('restartButton').addEventListener('click', restartCicle());
-
-function lastImg() {
-	currentImg--;
-	if (currentImg < 0) currentImg = imgArray.lenght;
-	document.getElementById('mainImg').src = imgArray[currentImg].src;
-	console.log(imgArray[currentImg].src);
-}
-document.getElementById('backButton').addEventListener('click', lastImg);*/
-
-/* Ex5
-function submitInfo()
-{	console.clear();
-	var Obj = document.getElementById('name');
-	console.log('[' + Obj.name + ']:' + Obj.value);
-	Obj = document.getElementById('endereco');
-	console.log('[' + Obj.name + ']:' + Obj.value);
-	Obj = document.getElementById('location');
-	console.log('[' + Obj.name + ']:' + Obj.value);
-	Obj = document.getElementById('cod');
-	console.log('[' + Obj.name + ']:' + Obj.value);
-	Obj = document.getElementById('phoneNumber');
-	console.log('[' + Obj.name + ']:' + Obj.value);
-	Obj = document.getElementById('email');
-	console.log('[' + Obj.name + ']:' + Obj.value);
-	// Raddion Buttons
-	Obj = document.querySelector('input[name="radioButton"]:checked');
-	console.log('[' + Obj.name + ']:' + Obj.value);
-	// Text Area
-	Obj = document.getElementById('textArea');
-	console.log('[' + Obj.name + ']:' + Obj.value);
-	
-}*/
+		$.each(res.Search, function(index, result){
+			// Criar novo clone
+			var liMedia = cloneMedia.clone();
+			// Alterar no clone
+			$('#image', liMedia).attr('src', result.Poster);
+			$('.title', liMedia).text(result.Title)
+			$('.ano', liMedia).text(result.Year)
+			$('a', liMedia).attr('href', 
+				"https://www.imdb.com/title/" + result.imdbID)
+			// Adicionar o clone à tabela original
+			$('.media-list').append(liMedia);
+		})
+	})
+})
