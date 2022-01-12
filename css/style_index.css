@@ -11,12 +11,16 @@ h1 {
   color: orange;
 }
 table{
-   width: 100%;
+   width: 70%;
     border-collapse:collapse;
+    text-align: center;
 }
 td{
     width: 50%;
     text-align:center ;
+}
+th{
+  text-align: center;
 }
   #txtprocurar{
   float:left;
@@ -102,3 +106,8 @@ footer p {
 .social_footer_ul li { padding-left:20px; padding-top:10px; float:left; }
 .social_footer_ul li a { color:#black; border:1px solid #CCC; padding:8px;border-radius:50%;}
 .social_footer_ul li i {  width:20px; height:20px; text-align:center;}
+
+#logo{
+  height: 100px;
+  width: 100px;
+}
