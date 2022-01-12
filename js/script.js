@@ -1,7 +1,10 @@
 'use strict';
 
-var apikey = "";//TODO Get API Key
 //var cloneMedia = $('.media').clone();
+var API_url = "https://api.coingecko.com/api/v3/";
+var get_ping = "ping";
+var get_coins = "coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false";
+var cloneMedia = $('.media').clone();
 
 class moeda{
     constructor(rank, nome, valor, fav) {
@@ -12,45 +15,23 @@ class moeda{
     }
 };
 
-$('#btTry').mouseover(console.log("Over Button"));
-
-$('#btTry').on('click', function (){
-    console.log("Button Click");
-    //var corpo_tabela = $('#corpo-tabela');
-    let moedas = [new moeda(1,"Moeda 1", 20.00), new moeda(2, "Moeda 2", 15.00)];
-    moedas.each(function(coin_test){
-        console.log("Info Coin: \nRank:"+coin_test.rank+"\n");
-        //var line = "<tr><td>"+ coin_test.rank+"</td><td>"+coin_test.nome+"</td><td>"+coin_test.valor+"</td><td>"+coin_test.fav?"T":"F"+"</td></tr>";
-        //corpo_tabela.append(line);
-    })
-});
-
-//Procura informação da crypto inserida
-$('#btSearch').on('click', function() {
-
-	var valuePesquisa = $('#search_info').val();
-	$('.media-list').empty();
-	$('.panel-title').text('Resultados da pesquisa ' 
-		+ valuePesquisa);
-
+$(document).ready(function() {
 	$.ajax({
 		method: "GET",
-		url: "http://www.omdbapi.com/" 
-			+ "?apikey=" + apikey + "&s=" + valuePesquisa
+		url: API_url + get_coins
 	}).done(function(res){
 		console.log(res);
 
-		$.each(res.Search, function(index, result){
-			// Criar novo clone
+		$.each(res, function(index, result){
+			// Criar novo clone da lista
 			var liMedia = cloneMedia.clone();
-			// Alterar no clone
-			$('#image', liMedia).attr('src', result.Poster);
-			$('.title', liMedia).text(result.Title)
-			$('.ano', liMedia).text(result.Year)
-			$('a', liMedia).attr('href', 
-				"https://www.imdb.com/title/" + result.imdbID)
+			// Alterar campos do item
+			$('#rank', liMedia).text(result.market_cap_rank);
+			$('#image', liMedia).attr('src', result.image);
+			$('#nome', liMedia).text(result.name);
+			$('#valor', liMedia).text(result.Title);
 			// Adicionar o clone à tabela original
 			$('.media-list').append(liMedia);
 		})
 	})
-})
+});
