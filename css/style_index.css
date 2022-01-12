@@ -11,12 +11,16 @@ h1 {
   color: orange;
 }
 table{
-   width: 100%;
+   width: 70%;
     border-collapse:collapse;
+    text-align: center;
 }
 td{
     width: 50%;
     text-align:center ;
+}
+th{
+  text-align: center;
 }
   #txtprocurar{
   float:left;
@@ -33,4 +37,9 @@ td{
   cursor:pointer;
   height:40px;
   width:40px;
+}
+
+#logo{
+  height: 100px;
+  width: 100px;
 }
