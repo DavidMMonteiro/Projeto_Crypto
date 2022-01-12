@@ -8,39 +8,44 @@
     <script src="js/script.js"></script>
 </head>
 <body>
-    <h1>Testar criação de tabela</h1>
+    <h1>Testar criação de tabela e API Calls</h1>
     <ul class="media-list" style="list-style: none;">
-		<li >
+		<li class="headers">
 			<div class="row">
 				<div class="col-2">
-					<p id="rank">#</p>
+					<p>#</p>
 				</div>
-				<div class="col-4">
+				<div class="col-3">
 					<p>Img</p>
 				</div>
 				<div class="col-3">
-					<p id="nome">Nome</p>
+					<p>Nome</p>
 				</div>
 				<div class="col-3">
-					<p id="valor">Valor</p>
+					<p>Valor</p>
+				</div>
+				<div class="col-1">
+					<p>Fav</p>
 				</div>
 			</div>
 		</li>
 		<li class="media">
 			<div class="row">
 				<div class="col-2">
-					<p id="rank"></p>
-				</div>
-				<div class="col-4">
-					<a href="" class="thumbnail">
-						<img class="media-object" id="image">
-					</a>
+					<p class="rank"></p>
 				</div>
 				<div class="col-3">
-					<p id="nome"></p>
+					<img class="img-fluid" id="image">
 				</div>
 				<div class="col-3">
-					<p id="valor"></p>
+					<p class="nome"></p>
+				</div>
+				<div class="col-3">
+					<p class="valor"></p>
+				</div>
+				<div class="col-1">
+					<input type="checkbox" class="btn-check" id="btn-check-2-outlined" autocomplete="off">
+					<label class="btn btn-outline-danger" for="btn-check-2-outlined">♥</label>
 				</div>
 			</div>
 		</li>
