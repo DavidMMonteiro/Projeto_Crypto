@@ -2,46 +2,40 @@
 <html lang="pt-PT">
 
 <head>
-  <link rel="shortcut icon" href="imgs/favicon.ico">
-  <link rel="icon" type="image/gif" href="imgs/animated_favicon1.gif">
-  <link rel="stylesheet" href="css/style2.css" type="text/css">
-  <meta charset="utf-8">
-  <title>Criptomoedas</title>
-  <meta name="description" content="Site para visualizar as melhores cryptos">
-  <meta name="viewport" content="width=device-width, initialscale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"
-    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <link type="text/css" rel="stylesheet" href="css/style_index.css">
+	<!--Site info-->
+	<title>Criptomoedas</title>
+	<link rel="shortcut icon" href="imgs/favicon.ico">
+	<link rel="icon" type="image/gif" href="imgs/animated_favicon1.gif">
+	<link rel="stylesheet" href="css/style_index.css" type="text/css">
+	<meta charset="utf-8">
+	<meta name="description" content="Pesquisa as tuas cryptos">
+	<meta name="viewport" content="width=device-width, initialscale=1">
+	<!--External links-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
 </head>
 
 <body>
-  <!--h1 id="titulo">Top 100 Criptomoedas</h1-->
-  <!--TODO Check why over each other-->
-  <div class="header row">
-    <!--<div id="procurar col-4">
-        <div>
-          <a href="favoritos.html"><img src="imgs/Favorites-icon.png" alt="favoritos" id="btnfavoritos"/></a>
-        </div> -->
+  <div class="navbar row">
     <div class="col-md-1 col-12">
       <!--TODO Logo-->
-      <img src="imgs/logo.png" alt="Logótipo" id="logo" />
+        <a><img src="imgs/logo.png" alt="Logótipo" id="logo" class="img-fluid"/></a>
     </div>
 
-    <div class="col-md-1 col-12">
-      <input type="text" id="txtprocurar" placeholder="Procurar" />
-      <button type="button" class="btn btn-dark">Procurar</button>
+    <div class="col-md-6 col-12">
+      <input type="text" id="txtprocurar" placeholder="Procurar" class="rounded"/>
     </div>
-
+	
+	<div class="col-md-1 col-12">
+		<button type="button" class="btn btn-primary button-search">&#128269;</button>
+	</div>
+	
     <div class="col-md-2 col-12">
-      <button onclick="document.location='favoritos.html'">Página Favoritos</button>
+      <button type="button" class="btn btn-info" style="color:white" onclick="document.location='favoritos.html'">Página Favoritos</button>
     </div>
 
     <div class="dropdown col-md-1 col-12">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         Idioma
       </button>
@@ -52,7 +46,7 @@
       </div>
     </div>
     <div class="dropdown col-md-1 col-12">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         Moeda
       </button>
@@ -65,38 +59,94 @@
   </div>
   
   <div class="conteudo_home row">
-    <div class="col-md-8 col-12">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Rank</th>
-            <th scope="col">Logótipo</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Valor Atual</th>
-            <th scope="col">Mudança de Preço - 24h</th>
-            <th scope="col">Favoritos</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-    </div>
-    <div class="col-md-4 col-12">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col"><a href="favoritos.html">Lista de Favoritos</a></th>
-          </tr>
-        </thead>
-        <tbody>
-          <th scope="col">Rank</th>
-          <th scope="col">Logótipo</th>
-          <th scope="col">Nome</th>
-        </tbody>
+	<div class="col-md-8 col-12">
+	  <table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">Rank</th>
+				<th scope="col">Logótipo</th>
+				<th scope="col">Nome</th>
+				<th scope="col">Valor Atual</th>
+				<th scope="col">Mudança de Preço - 24h</th>
+				<th scope="col">Favoritos</th>
+			</tr>
+		</thead>
+		<tbody class="media-list">
+			<tr class="media">
+				<th scope="col" class="rank"></th>
+				<th scope="col" ><img id="image" width="32" height="32"></th>
+				<th scope="col" class="nome"></th>
+				<th scope="col" class="valor"></th>
+				<th scope="col" class="change24h"></th>
+				<th scope="col">
+					<input type="checkbox" class="btn-check" id="btn-check-2-outlined" autocomplete="off">
+					<label class="btn btn-outline-danger" for="btn-check-2-outlined">♥</label>
+				</th>
+			</tr>
+		</tbody>
+	  </table>
+	</div>
+	<div class="col-md-4 col-12">
+	  <table class="table table-striped">
+		<thead>
+		  <tr>
+			<th scope="col"><a href="favoritos.html">Lista de Favoritos</a></th>
+		  </tr>
+		</thead>
+		<tbody class="fav_list">
+			<tr>
+			  <th scope="col" class="rank"></th>
+			  <th scope="col" class="logo"></th>
+			  <th scope="col" class="nome"></th>
+			</tr>
+		</tbody>
 
-      </table>
-    </div>
+	  </table>
+	</div>
   </div>
+	  
+	<div class="footer">
+	  <div class="container">
+		<div class="row">
+		  <div class="col-sm-4 col-md col-sm-4  col-12">
+			<h5 class="">Find us</h5>
+			<a><img src="imgs/logo.png" alt="Logótipo" id="logo" class="img-fluid"/></a>
+		  </div>
+
+		  <div class="col-sm-4 col-md  col-12">
+			<h5 class="">Info</h5>
+			<p class="">O Top 100 Cryptomoedas é um site que tem a resposabilidade de expor o top 100 das principais moedas
+			  do mercado do mundo crypto. A sua principal missão é fazer essa mesmo exposição, capacitando os utilizadores
+			  de ver a sua variação em tempo real, para tirar as suas próprias conclusões informativas.</p>
+		  </div>
+
+		  <div class=" col-sm-4 col-md  col-12">
+			<h5 class="">Web Site Tree</h5>
+			<ul class="">
+			  <li><a href="index.html'">CrytoCheck</a></li>
+			  <li><a href="favoritos.html">Favoritos</a></li>
+			</ul>
+		  </div>
+
+		  <div class=" col-sm-4 col-md  col-12">
+			<h5 class="">Contact</h5>
+			<ul class="">
+			  <li><i class=""></i>9878/25 sec 9 rohini 35</li>
+			  <li><i class=""></i>+91-9999878398 </li>
+			  <li><i class=""></i>info@example.com </li>
+			</ul>
+		  </div>
+
+		</div>
+	  </div>
+		<hr>
+	  <div>
+		<p class="text-center">Copyright @2022 | Designed With by <a href="#">Nome do site/Logo</a></p>
+	  </div>
+	</div>
+  
+  <!--External Scripts-->
+  <script src="js/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
@@ -106,47 +156,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
     integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
     crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
-
-<footer class="footer">
-  <div class="container bottom_border">
-    <div class="row">
-
-      <div class=" col-sm-4 col-md col-sm-4  col-12 col">
-        <h5 class="">Find us</h5>
-        <p class="">LOGO</p>
-      </div>
-
-      <div class=" col-sm-4 col-md  col-6 col">
-        <h5 class="">Info</h5>
-        <p class="">O Top 100 Cryptomoedas é um site que tem a resposabilidade de expor o top 100 das principais moedas
-          do mercado do mundo crypto. A sua principal missão é fazer essa mesmo exposição, capacitando os utilizadores
-          de ver a sua variação em tempo real, para tirar as suas próprias conclusões informativas.</p>
-      </div>
-
-      <div class=" col-sm-4 col-md  col-6 col">
-        <h5 class="">Web Site Tree</h5>
-        <ul class="">
-          <li><a href="index.html'">Top 100 Criptomoedas</a></li>
-          <li><a href="favoritos.html">Favoritos</a></li>
-        </ul>
-      </div>
-
-      <div class=" col-sm-4 col-md  col-12 col">
-        <h5 class="">Contact</h5>
-        <ul class="">
-          <li><i class=""></i>9878/25 sec 9 rohini 35</li>
-          <li><i class=""></i>+91-9999878398 </li>
-          <li><i class=""></i>info@example.com </li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="container">
-    <p class="text-center">Copyright @2022 | Designed With by <a href="#">Nome do site/Logo</a></p>
-  </div>
-</footer>
-
 </html>
