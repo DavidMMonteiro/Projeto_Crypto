@@ -111,10 +111,20 @@ $('.detalhes').on('click', function () {
 })
 
 //-Sistema de troca de página de criptomoedas-----//
+$('.first_page').on("click", function () {
+	$('.first_page').text('');
+	$('.current_page').text("Pág.1");
+	$('.back_page').text('');
+	current_page = 1;
+	removeAllChildNodes(document.querySelector('.media-list'));
+	load_index();
+})
+
 $('.back_page').on("click", function () {
 	if (current_page > 1) {
 		$('.current_page').text("Pág." + --current_page);
 		if (current_page == 1) {
+			$('.first_page').text('');
 			$('.back_page').text('');
 		}
 		removeAllChildNodes(document.querySelector('.media-list'));
@@ -124,6 +134,7 @@ $('.back_page').on("click", function () {
 
 $('.next_page').on("click", function () {
 	if (current_page < 2) {
+		$('.first_page').text('«');
 		$('.back_page').text('<');
 	}
 	$('.current_page').text("Pág." + ++current_page);
