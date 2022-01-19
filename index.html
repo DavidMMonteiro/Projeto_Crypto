@@ -6,6 +6,7 @@
   <title>CriptoCheck</title>
   <link rel="icon" type="image/gif" href="imgs/web/logo_invert.jpg">
   <link rel="stylesheet" href="css/style_index.css" type="text/css">
+  <link rel="stylesheet" href="css/style_general.css" type="text/css">
   <meta charset="utf-8">
   <meta name="description" content="Pesquisa as tuas cryptos">
   <meta name="viewport" content="width=device-width, initialscale=1">
@@ -16,7 +17,7 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container-fluid">
     <div class="navbar row">
       <div class="col-md-1 col-12">
         <!--TODO Logo-->
@@ -33,7 +34,7 @@
 
       <div class="col-md-2 col-12">
         <button type="button" class="btn btn-info" style="color:white"
-          onclick="document.location='favoritos.html'">Página Favoritos</button>
+          onclick="document.location='favoritos.html'">♥ Página Favoritos</button>
       </div>
 
       <div class=" col-md-1 col-12">
@@ -60,60 +61,67 @@
       </div>
     </div>
 
-    <div class="conteudo_home row">
-      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">Rank</th>
-              <th scope="col">Logótipo</th>
-              <th scope="col">Nome</th>
-              <th scope="col">Valor Atual</th>
-              <th scope="col">Mudança de Preço - 24h</th>
-              <th scope="col">Favoritos</th>
-            </tr>
-          </thead>
-          <tbody class="media-list">
-            <tr class="media">
-              <td scope="col" class="rank"></td>
-              <td scope="col"><a class="detalhes"><img id="image" width="32" height="32"></a></td>
-              <td scope="col" class="nome"></td>
-              <td scope="col" class="valor"></td>
-              <td scope="col" class="change24h"></td>
-              <td scope="col">
-                <input type="checkbox" class="btn-check" id="btn-check-2-outlined" autocomplete="off">
-                <label class="btn btn-outline-danger" for="btn-check-2-outlined">♥</label>
-              </td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td></td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col"><a href="favoritos.html">Lista de Favoritos</a></th>
-            </tr>
-          </thead>
-          <tbody class="fav_list">
-            <tr>
-              <th scope="col" class="rank"></th>
-              <th scope="col" class="logo"></th>
-              <th scope="col" class="nome"></th>
-            </tr>
-          </tbody>
+    <div class="conteudo_home my-3">
+      <div class="row">
+        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+          <table class="table table-striped text-center">
+            <thead>
+              <tr>
+                <th scope="col">Rank</th>
+                <th scope="col">Logótipo</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Valor Atual</th>
+                <th scope="col">Mudança de Preço - 24h</th>
+                <th scope="col">Favoritos</th>
+              </tr>
+            </thead>
+            <tbody class="media-list">
+              <tr class="media">
+                <td scope="col" class="rank"></td>
+                <td scope="col">
+                  <a class="detalhes" href="detalhes.html">
+                    <img id="image" width="32" height="32">
+                  </a>
+                </td>
+                <td scope="col" >
+                  <a class="nome detalhes" href="#"></a>
+                </td>
+                <td scope="col" class="valor"></td>
+                <td scope="col" class="change24h"></td>
+                <td scope="col">
+                  <input type="checkbox" class="btn-check" id="btn-check-2-outlined" autocomplete="off">
+                  <label class="btn btn-outline-danger" for="btn-check-2-outlined">♥</label>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"><a href="favoritos.html">Lista de Favoritos</a></th>
+              </tr>
+            </thead>
+            <tbody class="fav_list">
+              <tr>
+                <th scope="col" class="rank"></th>
+                <th scope="col" class="logo"></th>
+                <th scope="col" class="nome"></th>
+              </tr>
+            </tbody>
 
-        </table>
+          </table>
+        </div>
       </div>
     </div>
 
     <div class="footer">
-      <div class="container">
         <div class="row">
           <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
             <h5 class="">Info</h5>
@@ -150,11 +158,10 @@
             </ul>
           </div>
         </div>
-      </div>
       <hr>
       <div class="text-center">
         <p>Copyright @2022 | Designed With by <a href="index.html">CryptoCheck</a></p>
-		<img src="imgs/Email/logo.jpg" alt="Logótipo" id="logo" class="img-fluid" />
+		    <img src="imgs/Email/logo.jpg" alt="Logótipo" id="logo" class="img-fluid" />
       </div>
     </div>
   </div>

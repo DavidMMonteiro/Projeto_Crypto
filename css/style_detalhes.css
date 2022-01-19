@@ -1,0 +1,35 @@
+
+/*------Content Section------*/
+td{text-align:center;}
+th{text-align:center;}
+
+.section{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.title_section{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 15px;
+}
+
+#symbol{
+	font-size: 10pt;
+	background-color: lightgray;
+	color: darkslategray;
+}
+
+.price_section{
+	display:flex;
+	align-items: center;
+	gap: 15px;
+}
+
+#rank{
+	font-size: 12pt;
+	background-color: lightgray;
+	color: darkslategray;
+}
