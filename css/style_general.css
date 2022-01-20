@@ -5,9 +5,21 @@
   font-size:18px;
   border-style:double;
   height:32px;
-  width:100%;
 }
 /*------General-------*/
+body{
+  background-color: black;
+}
+
+a {
+  text-decoration: inherit !important; 
+}
+
+.rank{
+  background-color: darkgray;
+  color: black;
+}
+
 .up{
   color: green !important;
 }
@@ -17,6 +29,6 @@
 }
 
 /*------Footer Section------*/
-.footer p { 
+.footer { 
   font-size:13px; 
 }

@@ -1,8 +1,5 @@
 
 /*------Content Section------*/
-td{text-align:center;}
-th{text-align:center;}
-
 .section{
 	display: flex;
 	align-items: center;
@@ -32,4 +29,8 @@ th{text-align:center;}
 	font-size: 12pt;
 	background-color: lightgray;
 	color: darkslategray;
+}
+
+#change24h{
+	font-size: 15pt;
 }
