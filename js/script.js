@@ -207,7 +207,7 @@ function load_details() {
 			}
 			localStorage.setItem('fav_list', JSON.stringify(fav_list));
 		});
-		$('#fav_label').prop('title', 'Inserir a moeda ' + res.name + ' a favoritos');
+		$('#fav_label').prop('title', 'Adicionar moeda ' + res.name + ' a favoritos');
 		//Data Rank da moeda
 		$('#rank').text('Rank #' + (res.market_cap_rank != null ? res.market_cap_rank : '---'));
 		$('#rank').prop('title', 'Rank no mercado #' + res.market_cap_rank);
@@ -249,6 +249,12 @@ function load_details() {
 		$('#change_por_200d').text(value_state(0,valor) + ' %');
 		$('#change_por_200d').addClass(value_state(1,valor));
 		$('#change_por_200d').prop('title', 'Porcentagem ' + value_state(2,valor) + 'da moeda nod ultimos 200d');
+		//Data mudanza porcentagem em 200d
+		valor = res.market_data.total_supply;
+		$('#total_supply').text(valor);
+		//Data mudanza porcentagem em 200d
+		valor = res.market_data.max_supply;
+		$('#max_supply').text(valor);
 		
 		//Data detalhes da moeda
 		$('#details').html(res.description.en != '' ? res.description.en : 'No data found');

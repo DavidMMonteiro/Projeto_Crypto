@@ -90,7 +90,6 @@
         </div>
         <div class="price_section px-2">
           <span id="rank" class="p-1 rounded-2">Rank #</span>
-          <span id="change24h" class="p-1 rounded-2"></span>
           <h2 id="price">Coin price</h2>
         </div>
       </div>
@@ -98,33 +97,41 @@
       <div>
         <h3>Mudança de valor da moeda</h3>
         <div class="row">
-          <div class="col-xl-4 col-lg-6 col-md-6 my-2">
-            <span title="Mudança de Preço nas ultimas 24h">Preço nas ultimas <b>24h</b>: </span>
+          <div class="col-xl-4 col-lg-6 col-md-6 my-2" title="Mudança de Preço nas ultimas 24h">
+            <span >Preço nas ultimas <b>24h</b>: </span>
             <span id="change_price_24h"></span>
           </div>
-          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 my-2">
-            <span title="Porcentagem de mudança do preço nas ultimas 24 horas">Porcentagem nas ultimas <b>24h</b>: </span>
+          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 my-2" title="Porcentagem de mudança do preço nas ultimas 24 horas">
+            <span >Porcentagem nas ultimas <b>24h</b>: </span>
             <span id="change_por_24h"> </span>
           </div>
-          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 my-2">
-            <span title="Porcentagem de mudança do preço nos ultimos 7 días">Porcentagem nos ultimos <b>7d</b>: </span>
+          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 my-2" title="Porcentagem de mudança do preço nos ultimos 7 días">
+            <span >Porcentagem nos ultimos <b>7d</b>: </span>
             <span id="change_por_7d"> </span>
           </div>
-          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 my-2">
-            <span title="Porcentagem de mudança do preço nos ultimos 14 días">Porcentagem nos ultimos <b>14d</b>: </span>
+          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 my-2" title="Porcentagem de mudança do preço nos ultimos 14 días">
+            <span >Porcentagem nos ultimos <b>14d</b>: </span>
             <span id="change_por_14d"> </span>
           </div>
-          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 my-2">
-            <span title="Porcentagem de mudança do preço nos ultimos 30 días">Porcentagem nos ultimos <b>30d</b>: </span>
+          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 my-2" title="Porcentagem de mudança do preço nos ultimos 30 días">
+            <span >Porcentagem nos ultimos <b>30d</b>: </span>
             <span id="change_por_30d"> </span>
           </div>
-          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 my-2">
-            <span title="Porcentagem de mudança do preço nos ultimos 60 días">Porcentagem nos ultimos <b>60d</b>: </span>
+          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 my-2" title="Porcentagem de mudança do preço nos ultimos 60 días">
+            <span >Porcentagem nos ultimos <b>60d</b>: </span>
             <span id="change_por_60d"> </span>
           </div>
-          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 my-2">
-            <span title="Porcentagem de mudança do preço nos ultimos 200 días">Porcentagem nos ultimos <b>200d</b>: </span>
+          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 my-2" title="Porcentagem de mudança do preço nos ultimos 200 días">
+            <span >Porcentagem nos ultimos <b>200d</b>: </span>
             <span id="change_por_200d"> </span>            
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 my-2" title="Quantidade da moeda no mercado">
+            <span >Quantidade da moeda no mercado: </span>
+            <span><b id="total_supply"></b></span>            
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 my-2" title="Quantidade maximo da moeda no mercado">
+            <span >Quantidade maximo da moeda: </span>
+            <span><b id="max_supply"></b></span>            
           </div>
         </div>
       </div>
@@ -161,14 +168,14 @@
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 p-2">
           <h5 class="">Web Site Tree</h5>
           <ul class="">
-            <li><a href="index.html">CryptoCheck</a></li>
-            <li><a href="favoritos.html">Favoritos</a></li>
+            <li title="Link a página principal"><a href="index.html">Home</a></li>
+            <li title="Link a página de favoritos"><a href="favoritos.html">Favoritos</a></li>
           </ul>
         </div>
 
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 p-2">
-          <h5 class="">Contact</h5>
-          <ul class="">
+          <h5>Contact</h5>
+          <ul>
             <li>
               Autoros:
               <ul>
@@ -180,9 +187,9 @@
             <li>
               Contactos:
               <ul>
-                <li><a href="mailto:2211849@my.ipleiria.pt">2211849@my.ipleiria.pt</a></li>
-                <li><a href="mailto:2211876@my.ipleiria.pt">2211876@my.ipleiria.pt</a></li>
-                <li><a href="mailto:2211886@my.ipleiria.pt">2211886@my.ipleiria.pt</a></li>
+                <li title="Mandar mail para David Machado Monteiro (2211849@my.ipleiria.pt)"><a href="mailto:2211849@my.ipleiria.pt">2211849@my.ipleiria.pt</a></li>
+                <li title="Mandar mail para Bernardo Filipe Custódio Costa (2211876@my.ipleiria.pt)"><a href="mailto:2211876@my.ipleiria.pt">2211876@my.ipleiria.pt</a></li>
+                <li title="Mandar mail para Fábio Gameiro Gomes (2211886@my.ipleiria.pt)"><a href="mailto:2211886@my.ipleiria.pt">2211886@my.ipleiria.pt</a></li>
               </ul>
             </li>
           </ul>
@@ -190,7 +197,7 @@
       </div>
       <hr>
       <div class="text-center">
-        <p>Copyright ©2022 | Designed With by <a href="index.html">CryptoCheck</a></p>
+        <p>Copyright ©2022 | Designed With by <a href="index.html" title="Link página principal">CryptoCheck</a></p>
         <img src="imgs/Email/logo.jpg" alt="Logótipo" id="logo" class="img-fluid" />
       </div>
     </div>
