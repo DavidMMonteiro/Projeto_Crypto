@@ -86,10 +86,41 @@ $('#btTest').on('click', function () {
 
 
 /*------Funções gerais------*/
+
+//	Apaga todos os elementos filhos de um objeto
 function removeAllChildNodes(parent) {
 	while (parent.firstChild) {
 		parent.removeChild(parent.firstChild);
 	}
+}
+
+// Retorna a construçao de strings do valor inserido
+function value_state(type, value) {
+	var output = "";
+	switch (type) {
+		case 0: //String setas
+			if (value == null) {
+				output = '';
+			} else {
+				output = (value > 0 ? '↑ ' : '↓ ') + value;
+			}
+			break;
+		case 1:// String classes
+			if (value == null) {
+				output = '';
+			} else {
+				output = value > 0 ? 'up' : 'down';
+			}
+			break;
+		case 2: //String title
+			if (value == null) {
+				output = 'estático ';
+			} else {
+				output = value > 0 ? 'subida ' : 'descida ';
+			}
+			break;
+	}
+	return output;
 }
 
 /*------Funções Especificas------*/
@@ -180,14 +211,45 @@ function load_details() {
 		//Data Rank da moeda
 		$('#rank').text('Rank #' + (res.market_cap_rank != null ? res.market_cap_rank : '---'));
 		$('#rank').prop('title', 'Rank no mercado #' + res.market_cap_rank);
-		//Data mudanza da moeda em 24h
-		var change_24 = res.market_data.price_change_24h;
-		$('#change24h').text((change_24 != null ? (change_24 > 0 ? '↑ ' : '↓ ') + change_24 : "-") + coin_type);
-		$('#change24h').addClass((change_24 != null ? (change_24 > 0 ? 'up' : 'down') : ''));
-		$('#change24h').prop('title', 'Valor ' + (change_24 != null ? (change_24 > 0 ? 'subida ' : 'descida ') : 'estático ') + 'da moeda nas ultimas 24h');
 		//Data valor da moeda
 		$('#price').text(coin_type + res.market_data.current_price.eur);
 		$('#price').prop('title', 'Preço atual da moeda: ' + coin_type + res.market_data.current_price.eur);
+		//Data mudanza preço em 24h
+		var valor = res.market_data.price_change_24h;
+		$('#change_price_24h').text(value_state(0,valor) + coin_type);
+		$('#change_price_24h').addClass(value_state(1,valor));
+		$('#change_price_24h').prop('title', 'Valor ' + value_state(2,valor) + 'da moeda nas ultimas 24h');
+		//Data mudanza porcentagem em 24h
+		valor = res.market_data.price_change_percentage_24h;
+		$('#change_por_24h').text(value_state(0,valor) + ' %');
+		$('#change_por_24h').addClass(value_state(1,valor));
+		$('#change_por_24h').prop('title', 'Porcentagem ' + value_state(2,valor) + 'da moeda nas ultimas 24h');
+		//Data mudanza porcentagem em 7d
+		valor = res.market_data.price_change_percentage_7d;
+		$('#change_por_7d').text(value_state(0,valor) + ' %');
+		$('#change_por_7d').addClass(value_state(1,valor));
+		$('#change_por_7d').prop('title', 'Porcentagem ' + value_state(2,valor) + 'da moeda nod ultimos 7d');
+		//Data mudanza porcentagem em 14d
+		valor = res.market_data.price_change_percentage_14d;
+		$('#change_por_14d').text(value_state(0,valor) + ' %');
+		$('#change_por_14d').addClass(value_state(1,valor));
+		$('#change_por_14d').prop('title', 'Porcentagem ' + value_state(2,valor) + 'da moeda nod ultimos 14d');
+		//Data mudanza porcentagem em 30d
+		valor = res.market_data.price_change_percentage_30d;
+		$('#change_por_30d').text(value_state(0,valor) + ' %');
+		$('#change_por_30d').addClass(value_state(1,valor));
+		$('#change_por_30d').prop('title', 'Porcentagem ' + value_state(2,valor) + 'da moeda nod ultimos 30d');
+		//Data mudanza porcentagem em 60d
+		valor = res.market_data.price_change_percentage_60d;
+		$('#change_por_60d').text(value_state(0,valor) + ' %');
+		$('#change_por_60d').addClass(value_state(1,valor));
+		$('#change_por_60d').prop('title', 'Porcentagem ' + value_state(2,valor) + 'da moeda nod ultimos 60d');
+		//Data mudanza porcentagem em 200d
+		valor = res.market_data.price_change_percentage_200d;
+		$('#change_por_200d').text(value_state(0,valor) + ' %');
+		$('#change_por_200d').addClass(value_state(1,valor));
+		$('#change_por_200d').prop('title', 'Porcentagem ' + value_state(2,valor) + 'da moeda nod ultimos 200d');
+		
 		//Data detalhes da moeda
 		$('#details').html(res.description.en != '' ? res.description.en : 'No data found');
 		//Data inserir links da moeda
@@ -252,8 +314,8 @@ function load_search() {
 			$('.nome', liMedia).text(result.name);
 			$('.nome', liMedia).prop('title', 'Nome da moeda: ' + result.name);
 			//TODO Criar função para ver se esta em lista de favoritos
-			$('#fav_button',liMedia).checked = fav_list.includes(result);
-			$('#fav_button',liMedia).change(function () {
+			$('#fav_button', liMedia).checked = fav_list.includes(result);
+			$('#fav_button', liMedia).change(function () {
 				if (this.checked) {
 					fav_list.push(result);
 					console.log(fav_list);

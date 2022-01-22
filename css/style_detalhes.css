@@ -1,11 +1,5 @@
 
 /*------Content Section------*/
-.section{
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
-
 .title_section{
 	display: flex;
 	flex-wrap: wrap;
@@ -30,7 +24,6 @@
 	background-color: lightgray;
 	color: darkslategray;
 }
-
-#change24h{
-	font-size: 15pt;
+.media{
+	font-size: 12pt;
 }

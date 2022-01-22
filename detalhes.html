@@ -33,19 +33,19 @@
           placeholder="Procurar" class="rounded w-100" />
       </div>
 
-      <div class="col-xl-1 col-md-1 col-md-2 col-sm-2 col-2">
+      <div class="col-xl-1 col-log-5 col-md-1 col-md-2 col-sm-2 col-2">
         <button title="Procurar informação inserida" type="button" id="btSearch"
           class="w-100 btn btn-primary button-search">&#128269;</button>
       </div>
 
-      <div class="col-xl-1 col-md-2 col-12">
+      <div class="col-xl-1 col-log-12 col-md-12 col-12">
         <button type="button" class="w-100  btn btn-info" onclick="document.location='favoritos.html'"
-          title="Página lista de favoritos">
+          title="Página de favoritos">
           ♥
         </button>
       </div>
 
-      <div class="col-xl-2 col-md-1 col-6">
+      <div class="col-xl-2 col-lg-6 col-md-6 col-sm-6 col-6">
         <div class="dropdown">
           <button title="Selecione um idioma" class="w-100 btn btn-primary dropdown-toggle" type="button"
             id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -58,7 +58,7 @@
           </div>
         </div>
       </div>
-      <div class="col-xl-2 col-md-1 col-6">
+      <div class="col-xl-2 col-lg-6 col-md-6 col-sm-6 col-6">
         <div class="dropdown">
           <button title="Selecione uma moeda" class="w-100 btn btn-primary dropdown-toggle" type="button"
             id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -92,6 +92,40 @@
           <span id="rank" class="p-1 rounded-2">Rank #</span>
           <span id="change24h" class="p-1 rounded-2"></span>
           <h2 id="price">Coin price</h2>
+        </div>
+      </div>
+      <hr>
+      <div>
+        <h3>Mudança de valor da moeda</h3>
+        <div class="row">
+          <div class="col-xl-4 col-lg-6 col-md-6 my-2">
+            <span title="Mudança de Preço nas ultimas 24h">Preço nas ultimas <b>24h</b>: </span>
+            <span id="change_price_24h"></span>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 my-2">
+            <span title="Porcentagem de mudança do preço nas ultimas 24 horas">Porcentagem nas ultimas <b>24h</b>: </span>
+            <span id="change_por_24h"> </span>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 my-2">
+            <span title="Porcentagem de mudança do preço nos ultimos 7 días">Porcentagem nos ultimos <b>7d</b>: </span>
+            <span id="change_por_7d"> </span>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 my-2">
+            <span title="Porcentagem de mudança do preço nos ultimos 14 días">Porcentagem nos ultimos <b>14d</b>: </span>
+            <span id="change_por_14d"> </span>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 my-2">
+            <span title="Porcentagem de mudança do preço nos ultimos 30 días">Porcentagem nos ultimos <b>30d</b>: </span>
+            <span id="change_por_30d"> </span>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 my-2">
+            <span title="Porcentagem de mudança do preço nos ultimos 60 días">Porcentagem nos ultimos <b>60d</b>: </span>
+            <span id="change_por_60d"> </span>
+          </div>
+          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 my-2">
+            <span title="Porcentagem de mudança do preço nos ultimos 200 días">Porcentagem nos ultimos <b>200d</b>: </span>
+            <span id="change_por_200d"> </span>            
+          </div>
         </div>
       </div>
       <hr>
