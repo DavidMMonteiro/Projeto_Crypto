@@ -40,6 +40,10 @@ li{
   color:red !important;
 }
 
+.right{text-align: right;}
+
+.left{text-align: left;}
+
 /*------Footer Section------*/
 .footer { 
   font-size:13px; 
