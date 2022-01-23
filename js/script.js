@@ -15,6 +15,9 @@ var fav_list = new Array();
 
 // URL principal da API
 var API_url = 'https://api.coingecko.com/api/v3/';
+// URL Página CoinGecko 
+var path_coingecko = "https://www.coingecko.com/en/coins/";
+
 
 /*------Variaveis HTML------*/
 
@@ -210,7 +213,7 @@ function load_details() {
 	}).done(function (res) {
 		console.log(res);
 		//Datos imagem
-		$('#image a').attr('href', API_url + res.id);;
+		$('#image a').attr('href', path_coingecko + res.id);;
 		$('#image img').attr('src', res.image.large);
 		$('#image img').attr('alt', 'Logo ' + res.name);
 		$('#image img').attr('title', 'Logo ' + res.name + " & Link para a coingecko");
