@@ -2,175 +2,177 @@
 <html lang="pt-PT">
 
 <head>
-   <!--Site info-->
-   <title>CriptoCheck</title>
-   <link rel="icon" type="image/gif" href="imgs/web/logo_invert.jpg">
-   <meta name="description" content="Pesquisa as tuas cryptos">
-   <!--Estilos página-->
-   <link rel="stylesheet" href="css/style_index.css" type="text/css">
-   <link rel="stylesheet" href="css/style_general.css" type="text/css">
-   <!--Meta datos-->
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <!--External links-->
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+  <!--Site info-->
+  <title>CriptoCheck</title>
+  <link rel="icon" type="image/gif" href="imgs/web/logo_invert.jpg">
+  <meta name="description" content="Pesquisa as tuas cryptos">
+  <!--Estilos página-->
+  <link rel="stylesheet" href="css/style_index.css" type="text/css">
+  <link rel="stylesheet" href="css/style_general.css" type="text/css">
+  <!--Meta datos-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--External links-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
 </head>
 
 <body>
-   <div class="container-fluid">
-      <div class="navbar row">
-         <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12">
-           <a href="index.html">
-             <img title="Logo CryptoCheck" src="imgs/Social_Media/logo.jpg" alt="Logótipo" id="logo"
-               class="img-fluid rounded-circle" />
-           </a>
-         </div>
-   
-         <div class="col-xl-5 col-lg-6 col-md-10 col-sm-10 col-10">
-           <input title="Campo para inserir o nome de uma crypto moeda que quere ver" type="text" id="pesquisa"
-             placeholder="Procurar" class="rounded w-100" />
-         </div>
-   
-         <div class="col-xl-1 col-log-5 col-md-1 col-md-2 col-sm-2 col-2">
-           <button title="Procurar informação inserida" type="button" id="btSearch"
-             class="w-100 btn btn-primary button-search">&#128269;</button>
-         </div>
-   
-         <div class="col-xl-1 col-log-12 col-md-12 col-12">
-           <button type="button" class="w-100  btn btn-info" onclick="document.location='favoritos.html'"
-             title="Página de favoritos">
-             ♥
-           </button>
-         </div>
-   
-         <div class="col-xl-2 col-lg-6 col-md-6 col-sm-6 col-6">
-           <div class="dropdown">
-             <button title="Selecione um idioma" class="w-100 btn btn-primary dropdown-toggle" type="button"
-               id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               PT
-             </button>
-             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-               <a class="dropdown-item">PT</a>
-               <a class="dropdown-item">ES</a>
-               <a class="dropdown-item">EN</a>
-             </div>
-           </div>
-         </div>
-         <div class="col-xl-2 col-lg-6 col-md-6 col-sm-6 col-6">
-           <div class="dropdown">
-             <button title="Selecione uma moeda" class="w-100 btn btn-primary dropdown-toggle" type="button"
-               id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               EUR€
-             </button>
-             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-               <a class="dropdown-item">EUR€</a>
-               <a class="dropdown-item">USD$</a>
-               <a class="dropdown-item">GBP£</a>
-             </div>
-           </div>
-         </div>
-       </div>
-
-      <div class="conteudo_home my-3">
-         <table class="table table-striped">
-            <thead>
-               <tr>
-                  <th scope="col">Rank</th>
-                  <th scope="col">Logótipo</th>
-                  <th scope="col">Nome</th>
-                  <th scope="col" class="right">Valor Atual</th>
-                  <th scope="col" class="right">Mudança de Preço - 24h</th>
-                  <th scope="col" class="text-center">Favoritos</th>
-               </tr>
-            </thead>
-            <tbody class="media-list">
-               <tr class="media">
-                  <td scope="col">
-                     <span class="rank p-1 rounded-1"></span>
-                  </td>
-                  <td scope="col">
-                     <a class="detalhes" href="index.html#head_table">
-                        <img id="image" width="32" height="32">
-                     </a>
-                  </td>
-                  <td scope="col">
-                     <a class="detalhes nome" href="index.html#head_table"></a>
-                  </td>
-                  <td scope="col" class="right">
-                     <span class="valor"></span>
-                  </td>
-                  <td scope="col" class="right">
-                     <span class="change24h"></span>
-                  </td>
-                  <td scope="col" class="text-center">
-                     <input type="checkbox" class="btn-check" id="fav_button" autocomplete="off">
-                     <label id="fav_label" class="btn btn-outline-danger" for="fav_button">♥</label>
-                  </td>
-               </tr>
-            </tbody>
-         </table>
+  <div class="container-fluid">
+    <div class="navbar row">
+      <div class="text-lg-left text-center  col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12">
+        <a href="index.html">
+          <img title="Logo CryptoCheck" src="imgs/Social_Media/logo.jpg" alt="Logótipo" id="logo"
+            class="img-fluid rounded-circle" />
+        </a>
       </div>
 
-      <div class="footer">
-         <div class="row">
-           <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 p-2">
-             <h5>Info</h5>
-             <p>CryptoCheck é um site que tem a resposabilidade de expor as moedas do mercado do mundo crypto.
-               A sua principal missão é fazer essa mesmo exposição, capacitando os utilizadores de ver a sua variação em
-               tempo real, para tirar as suas próprias conclusões informativas.</p>
-           </div>
-   
-           <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 p-2">
-             <h5>Web Site Tree</h5>
-             <ul>
-               <li title="Link a página principal"><a href="index.html">Home</a></li>
-               <li title="Link a página de favoritos"><a href="favoritos.html">Favoritos</a></li>
-             </ul>
-           </div>
-   
-           <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 p-2">
-             <h5>Contact</h5>
-             <ul>
-               <li>
-                 Autoros:
-                 <ul>
-                   <li>David Machado Monteiro</li>
-                   <li>Bernardo Filipe Custódio Costa</li>
-                   <li>Fábio Gameiro Gomes</li>
-                 </ul>
-               </li>
-               <li>
-                 Contactos:
-                 <ul>
-                   <li title="Mandar mail para David Machado Monteiro (2211849@my.ipleiria.pt)"><a href="mailto:2211849@my.ipleiria.pt">2211849@my.ipleiria.pt</a></li>
-                   <li title="Mandar mail para Bernardo Filipe Custódio Costa (2211876@my.ipleiria.pt)"><a href="mailto:2211876@my.ipleiria.pt">2211876@my.ipleiria.pt</a></li>
-                   <li title="Mandar mail para Fábio Gameiro Gomes (2211886@my.ipleiria.pt)"><a href="mailto:2211886@my.ipleiria.pt">2211886@my.ipleiria.pt</a></li>
-                 </ul>
-               </li>
-             </ul>
-           </div>
-         </div>
-         <hr>
-         <div class="text-center">
-           <p>Copyright ©2022 | Designed With by <a href="index.html" title="Link página principal">CryptoCheck</a></p>
-           <img src="imgs/Email/logo.jpg" alt="Logótipo" id="logo" class="img-fluid" />
-         </div>
-       </div>
-   </div>
+      <div class="col-xl-5 col-lg-6 col-md-10 col-sm-10 col-10">
+        <input title="Campo para inserir o nome de uma crypto moeda que quere ver" type="text" id="pesquisa"
+          placeholder="Procurar" class="rounded w-100" />
+      </div>
 
-   <!--Personal Scripts-->
-   <script src="js/script.js"></script>
-   <!--External Scripts-->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-      referrerpolicy="no-referrer"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-      crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-      crossorigin="anonymous"></script>
+      <div class="col-xl-1 col-log-5 col-md-1 col-md-2 col-sm-2 col-2">
+        <button title="Procurar informação inserida" type="button" id="btSearch"
+          class="w-100 btn btn-primary button-search">&#128269;</button>
+      </div>
+
+      <div class="col-xl-1 col-log-12 col-md-12 col-12 my-xl-0 my-3">
+        <button type="button" class="w-100  btn btn-info" onclick="document.location='index.html'"
+          title="Página Principal">
+          <b>Home</b>
+        </button>
+      </div>
+
+      <div class="col-xl-2 col-lg-6 col-md-6 col-sm-6 col-6">
+        <div class="dropdown">
+          <button title="Selecione um idioma" class="w-100 btn btn-primary dropdown-toggle" type="button"
+            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            PT
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item">PT</a>
+            <a class="dropdown-item">ES</a>
+            <a class="dropdown-item">EN</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-6 col-md-6 col-sm-6 col-6">
+        <div class="dropdown">
+          <button title="Selecione uma moeda" class="w-100 btn btn-primary dropdown-toggle" type="button"
+            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            EUR€
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item">EUR€</a>
+            <a class="dropdown-item">USD$</a>
+            <a class="dropdown-item">GBP£</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="conteudo_home my-3">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Rank</th>
+            <th scope="col">Logótipo</th>
+            <th scope="col">Nome</th>
+            <th scope="col" class="right">Valor Atual</th>
+            <th scope="col" class="right">Mudança de Preço - 24h</th>
+            <th scope="col" class="text-center">Favoritos</th>
+          </tr>
+        </thead>
+        <tbody class="media-list">
+          <tr class="media">
+            <td scope="col">
+              <span class="rank p-1 rounded-1"></span>
+            </td>
+            <td scope="col">
+              <a class="detalhes" href="index.html#head_table">
+                <img id="image" width="32" height="32">
+              </a>
+            </td>
+            <td scope="col">
+              <a class="detalhes nome" href="index.html#head_table"></a>
+            </td>
+            <td scope="col" class="right">
+              <span class="valor"></span>
+            </td>
+            <td scope="col" class="right">
+              <span class="change24h"></span>
+            </td>
+            <td scope="col" class="text-center">
+              <input type="checkbox" class="btn-check" id="fav_button" autocomplete="off">
+              <label id="fav_label" class="btn btn-outline-danger" for="fav_button">♥</label>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="footer">
+      <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 p-2">
+          <h5>Info</h5>
+          <p>CryptoCheck é um site que tem a resposabilidade de expor as moedas do mercado do mundo crypto.
+            A sua principal missão é fazer essa mesmo exposição, capacitando os utilizadores de ver a sua variação em
+            tempo real, para tirar as suas próprias conclusões informativas.</p>
+        </div>
+
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 p-2">
+          <h5>Web Site Tree</h5>
+          <ul>
+            <li title="Link a página principal"><a href="index.html">Home</a></li>
+            <li title="Link a página de favoritos"><a href="favoritos.html">Favoritos</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12 p-2">
+          <h5>Contact</h5>
+          <ul>
+            <li>
+              Autoros:
+              <ul>
+                <li>David Machado Monteiro</li>
+                <li>Bernardo Filipe Custódio Costa</li>
+                <li>Fábio Gameiro Gomes</li>
+              </ul>
+            </li>
+            <li>
+              Contactos:
+              <ul>
+                <li title="Mandar mail para David Machado Monteiro (2211849@my.ipleiria.pt)"><a
+                    href="mailto:2211849@my.ipleiria.pt">2211849@my.ipleiria.pt</a></li>
+                <li title="Mandar mail para Bernardo Filipe Custódio Costa (2211876@my.ipleiria.pt)"><a
+                    href="mailto:2211876@my.ipleiria.pt">2211876@my.ipleiria.pt</a></li>
+                <li title="Mandar mail para Fábio Gameiro Gomes (2211886@my.ipleiria.pt)"><a
+                    href="mailto:2211886@my.ipleiria.pt">2211886@my.ipleiria.pt</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <div class="text-center">
+        <p>Copyright ©2022 | Designed With by <a href="index.html" title="Link página principal">CryptoCheck</a></p>
+        <img src="imgs/Email/logo.jpg" alt="Logótipo" id="logo" class="img-fluid" />
+      </div>
+    </div>
+  </div>
+
+  <!--Personal Scripts-->
+  <script src="js/script.js"></script>
+  <!--External Scripts-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

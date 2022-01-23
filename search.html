@@ -21,14 +21,14 @@
 <body>
   <div class="container-fluid">
     <div class="navbar row">
-      <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12">
+      <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12 text-lg-left text-center  ">
         <a href="index.html">
           <img title="Logo CryptoCheck" src="imgs/Social_Media/logo.jpg" alt="Logótipo" id="logo"
             class="img-fluid rounded-circle" />
         </a>
       </div>
 
-      <div class="col-xl-5 col-lg-6 col-md-10 col-sm-10 col-10">
+      <div class="col-xl-4 col-lg-6 col-md-10 col-sm-10 col-10">
         <input title="Campo para inserir o nome de uma crypto moeda que quere ver" type="text" id="pesquisa"
           placeholder="Procurar" class="rounded w-100" />
       </div>
@@ -38,7 +38,14 @@
           class="w-100 btn btn-primary button-search">&#128269;</button>
       </div>
 
-      <div class="col-xl-1 col-log-12 col-md-12 col-12">
+      <div class="col-xl-1 col-log-6 col-md-6 col-6 my-xl-0 my-3">
+        <button type="button" class="w-100  btn btn-info" onclick="document.location='index.html'"
+          title="Página principal">
+          <b>Home</b>
+        </button>
+      </div>
+
+      <div class="col-xl-1 col-log-6 col-md-6 col-6 my-xl-0 my-3">
         <button type="button" class="w-100  btn btn-info" onclick="document.location='favoritos.html'"
           title="Página de favoritos">
           ♥
@@ -109,23 +116,35 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col"><a href="favoritos.html">Lista de Favoritos</a></th>
+              <th scope="col" colspan="4">
+                <a title="Ver lista de favoritos em detalhe" href="favoritos.html">Lista de Favoritos</a>
+              </th>
+            </tr>
+            <tr>
+              <th scope="col">Rank</th>
+              <th scope="col">Logótipo</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Valor Atual</th>
             </tr>
           </thead>
           <tbody class="fav_list">
-            <tr>
-              <td scope="col">
-                <span class="rank p-1 rounded-1"></span>
+            <tr class="fav_line">
+              <td scope="row">
+                <span class="rank"></span>
               </td>
-              <td scope="col">
-                <a class="detalhes" href="#head_table">
+              <td>
+                <a class="detalhes" href="detalhes.html">
                   <img id="image" width="32" height="32">
                 </a>
               </td>
-              <th scope="col" class="nome"></th>
+              <td>
+                <span class="nome"></span>
+              </td>
+              <td>
+                <span class="value"></span>
+              </td>
             </tr>
           </tbody>
-
         </table>
       </div>
     </div>
@@ -161,9 +180,12 @@
             <li>
               Contactos:
               <ul>
-                <li title="Mandar mail para David Machado Monteiro (2211849@my.ipleiria.pt)"><a href="mailto:2211849@my.ipleiria.pt">2211849@my.ipleiria.pt</a></li>
-                <li title="Mandar mail para Bernardo Filipe Custódio Costa (2211876@my.ipleiria.pt)"><a href="mailto:2211876@my.ipleiria.pt">2211876@my.ipleiria.pt</a></li>
-                <li title="Mandar mail para Fábio Gameiro Gomes (2211886@my.ipleiria.pt)"><a href="mailto:2211886@my.ipleiria.pt">2211886@my.ipleiria.pt</a></li>
+                <li title="Mandar mail para David Machado Monteiro (2211849@my.ipleiria.pt)"><a
+                    href="mailto:2211849@my.ipleiria.pt">2211849@my.ipleiria.pt</a></li>
+                <li title="Mandar mail para Bernardo Filipe Custódio Costa (2211876@my.ipleiria.pt)"><a
+                    href="mailto:2211876@my.ipleiria.pt">2211876@my.ipleiria.pt</a></li>
+                <li title="Mandar mail para Fábio Gameiro Gomes (2211886@my.ipleiria.pt)"><a
+                    href="mailto:2211886@my.ipleiria.pt">2211886@my.ipleiria.pt</a></li>
               </ul>
             </li>
           </ul>
