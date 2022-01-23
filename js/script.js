@@ -33,6 +33,8 @@ $(window).on('load', function () {
 	if (page_name == 'index.html') {
 		// Carrega os dados no index
 		load_index();
+		//Remove o objeto original da página
+		$('.media').first().remove();
 	} else if (page_name == 'favoritos.html') {
 
 	} else if (page_name == 'search.html') {
@@ -194,8 +196,6 @@ function load_index() {
 			// Adicionar o clone à tabela original
 			$('.media-list').append(liMedia);
 		})
-		//Remove o objeto original da página
-		$('.media').first().remove();
 	})
 }
 
