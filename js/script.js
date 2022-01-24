@@ -216,7 +216,7 @@ function load_index() {
 			$('.detalhes', liMedia).prop('id', result.id);
 			// Guarda localmente a id da moeda selecionada para carregar os detalhes mais tarde 
 			// e redireciona para á página de detalhes
-			$('.detalhes').on('click', function () {
+			$('.detalhes', liMedia).on('click', function () {
 				var id_coin = this.id;
 				localStorage.setItem('coin_detail', id_coin);
 				window.location.href = 'detalhes.html'

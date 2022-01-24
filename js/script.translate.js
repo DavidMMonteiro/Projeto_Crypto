@@ -31,6 +31,8 @@ $(window).on('load', function () {
                     console.log("Página não encontrada: " + page_name)
                     break;
             }
+            // Tradução footer
+            translate_pt_footer();
             break;
         case 'EN':
             console.log('English traduction');
@@ -127,7 +129,12 @@ function translate_pt_search() {
 }
 
 function translate_pt_footer(){
-    
+   $('.footer #info').text('CryptoCheck é um site que tem a resposabilidade de expor as moedas do mercado do mundo crypto. A nossa principal missão é fazer é dar capacitando os utilizadores de ver a variação das moedas em tempo real, para tirar as suas próprias conclusões informativa e pesquisar informação das mesmas.'); 
+   $('.footer #index_link').prop('title','Link a página principal');
+   $('.footer #fav_link').prop('title','Link a página de favoritos');
+   $('.footer #contact_names').text('Autores:');
+   $('.footer #contact_mails').text('Contactos:');
+
 }
 
 
