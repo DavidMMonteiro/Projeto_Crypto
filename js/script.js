@@ -6,9 +6,9 @@ var coin_type = '€';
 // Guarda a pagina a ser disponibilizada no momento no index
 var current_page = 1;
 // Guarda o tipo de informação a ser procurada das moedas
-var current_country = 'eur'
+var current_country = 'EUR'
 // Guarda o idioma selecionado
-var idioma = 'pt'
+var idioma = 'PT'
 
 var fav_list = new Array();
 //fav_list = JSON.parse(localStorage.getItem('fav_list'));
@@ -65,17 +65,17 @@ $('#btSearch').on('click', function () {
 	}
 })
 
-$('.idioma').on('click', function() {
+$('.idioma').on('click', function () {
 	var text = $('a', this).text();
 	$('.idioma-button').text(text);
 	localStorage.setItem('idioma', text);
 	location.reload();
 })
 
-$('.moeda').on('click', function() {
+$('.moeda').on('click', function () {
 	var text = $('a', this).text();
 	var moeda = text[3];
-	var continente = text.replace(moeda,'');
+	var continente = text.replace(moeda, '');
 	$('.moeda-button').text(continente + moeda);
 	localStorage.setItem('continente', continente);
 	localStorage.setItem('moeda', moeda);
@@ -157,7 +157,37 @@ function value_state(type, value) {
 			if (value == null) {
 				output = 'estático ';
 			} else {
-				output = value > 0 ? 'subida ' : 'descida ';
+				if (value > 0) {
+					switch (idioma) {
+						case 'PT':
+							output = 'subida ';
+							break;
+						case 'EN':
+							output = 'incrise ';
+							break;
+						case 'ES':
+							output = 'subida ';
+							break;
+						default:
+							output = 'incrise ';
+							break;
+					}
+				} else {
+					switch (idioma) {
+						case 'PT':
+							output = 'descida ';
+							break;
+						case 'EN':
+							output = 'descent ';
+							break;
+						case 'ES':
+							output = 'bajada ';
+							break;
+						default:
+							output = 'descent ';
+							break;
+					}
+				}
 			}
 			break;
 	}
@@ -178,15 +208,15 @@ function load_index() {
 		$.each(res, function (index, result) {
 			// Criar novo clone da lista
 			var liMedia = cloneMedia.clone();
+			var string_insert = '';
 			// Alterar campos do item
 			liMedia.id = result.id;
 			$('.rank', liMedia).text('#' + result.market_cap_rank);
-			$('.rank', liMedia).prop('title', 'Rank da moeda #' + result.market_cap_rank);
+			$('.rank', liMedia).prop('title', 'Rank #' + result.market_cap_rank);
 			$('.detalhes', liMedia).prop('id', result.id);
 			// Guarda localmente a id da moeda selecionada para carregar os detalhes mais tarde 
 			// e redireciona para á página de detalhes
 			$('.detalhes').on('click', function () {
-				console.log('Im trying to get into Coin ' + this.id + 'details');
 				var id_coin = this.id;
 				localStorage.setItem('coin_detail', id_coin);
 				window.location.href = 'detalhes.html'
@@ -196,14 +226,56 @@ function load_index() {
 			$('#image', liMedia).prop('title', 'Logo ' + result.name);
 			// Carrega os dados do nome da moeda
 			$('.nome', liMedia).text(result.name);
-			$('.nome', liMedia).prop('title', 'Nome da moeda: ' + result.name);
+			switch (idioma) {
+				case 'PT':
+					string_insert = 'Nome da moeda: ';
+					break;
+				case 'EN':
+					string_insert = 'Coin name: ';
+					break;
+				case 'ES':
+					string_insert = 'Nombre de la moneda: ';
+					break;
+				default:
+					string_insert = 'Coin name: ';
+					break;
+			}
+			$('.nome', liMedia).prop('title', string_insert + result.name);
 			// Carrega os dados do valor da moeda
 			$('.valor', liMedia).text(coin_type + result.current_price);
-			$('.valor', liMedia).prop('title', 'Valor atual: ' + coin_type + result.current_price);
+			switch (idioma) {
+				case 'PT':
+					string_insert = 'Valor atual: ';
+					break;
+				case 'EN':
+					string_insert = 'Current value: ';
+					break;
+				case 'ES':
+					string_insert = 'Valor actual: ';
+					break;
+				default:
+					string_insert = 'Current value: ';
+					break;
+			}
+			$('.valor', liMedia).prop('title', string_insert + coin_type + result.current_price);
 			var price_change_24h = result.price_change_24h;
-			$('.change24h', liMedia).text((price_change_24h > 0 ? '↑ ' : '↓ ') + price_change_24h + coin_type);
-			$('.change24h', liMedia).addClass(price_change_24h > 0 ? 'up' : 'down');
-			$('.change24h', liMedia).prop('title', 'Valor de ' + (price_change_24h > 0 ? 'subida ' : 'descida ') + 'da moeda');
+			$('.change24h', liMedia).text(value_state(0,price_change_24h) + coin_type);
+			$('.change24h', liMedia).addClass(value_state(1,price_change_24h));
+			switch (idioma) {
+				case 'PT':
+					string_insert = 'Valor de ' + value_state(2,price_change_24h) + 'da moeda em 24h';
+					break;
+				case 'EN':
+					string_insert = 'Current ' + value_state(2,price_change_24h) + 'value of coin last 24h';
+					break;
+				case 'ES':
+					string_insert = 'Valor de ' + value_state(2, price_change_24h) + ' de la moneda em las ultimas 24h';
+					break;
+				default:
+					string_insert = 'Current ' + value_state(2,price_change_24h) + 'value of coin last 24h';
+					break;
+			}
+			$('.change24h', liMedia).prop('title', string_insert);
 			// Procesa se a moeda esta como favorita ou não
 			$('#fav_button', liMedia).checked = fav_list.includes(result);
 			$('#fav_button', liMedia).change(function () {
@@ -216,7 +288,21 @@ function load_index() {
 				}
 				localStorage.setItem('fav_list', JSON.stringify(fav_list));
 			});
-			$('#fav_label', liMedia).prop('title', 'Inserir a moeda ' + result.name + ' a favoritos');
+			switch (idioma) {
+				case 'PT':
+					string_insert = 'Inserir a moeda ' + result.name + ' a favoritos';
+					break;
+				case 'EN':
+					string_insert = 'Add coin ' + result.name + ' to favorites';
+					break;
+				case 'ES':
+					string_insert = 'Adicionar moneda ' + result.name + ' a lista de favoritos';
+					break;
+				default:
+					string_insert = 'Add coin ' + result.name + ' to favorites';
+					break;
+			}
+			$('#fav_label', liMedia).prop('title', string_insert);
 			// Adicionar o clone à tabela original
 			$('.media-list').append(liMedia);
 		})
@@ -225,25 +311,68 @@ function load_index() {
 
 //Função de processo de dados da página de detalhes
 function load_details() {
-	if(!localStorage.getItem('coin_detail')){
+	if (!localStorage.getItem('coin_detail')) {
 		location.document = 'index.html';
 	}
 	$.ajax({
 		method: 'GET',
 		url: API_url + 'coins/' + localStorage.getItem('coin_detail')
 	}).done(function (res) {
-		console.log(res);
+		//console.log(res);
+		var string_insert = '';
 		//Datos imagem
 		$('#image a').attr('href', path_coingecko + res.id);;
 		$('#image img').attr('src', res.image.large);
 		$('#image img').attr('alt', 'Logo ' + res.name);
-		$('#image img').attr('title', 'Logo ' + res.name + " & Link para a coingecko");
+		switch (idioma) {
+			case 'PT':
+				string_insert = 'Link para a coingeck';
+				break;
+			case 'EN':
+				string_insert = 'Link to coingeck';
+				break;
+			case 'ES':
+				string_insert = 'Link para coingeck';
+				break;
+			default:
+				string_insert = 'Link to coingeck';
+				break;
+		}
+		$('#image img').attr('title', 'Logo ' + res.name + ' & ' + string_insert);
 		//Nome moeda
 		$('#nome').text(res.name);
-		$('#nome').prop('title', "Nome da moeda: " + res.name);
+		switch (idioma) {
+			case 'PT':
+				string_insert = 'Nome da moeda';
+				break;
+			case 'EN':
+				string_insert = 'Coin name';
+				break;
+			case 'ES':
+				string_insert = 'Nombre de la moeda';
+				break;
+			default:
+				string_insert = 'Coin name';
+				break;
+		}
+		$('#nome').prop('title', string_insert + ': ' + res.name);
 		//Simbolo moeda
 		$('#symbol').text(res.symbol);
-		$('#symbol').prop('title', 'Simbolo da moeda: ' + res.name);
+		switch (idioma) {
+			case 'PT':
+				string_insert = 'Simbolo da moeda';
+				break;
+			case 'EN':
+				string_insert = 'Coin symbol';
+				break;
+			case 'ES':
+				string_insert = 'Simbolo de la moneda';
+				break;
+			default:
+				string_insert = 'Coin symbol';
+				break;
+		}
+		$('#symbol').prop('title', string_insert + ': ' + res.name);
 		//TODO Criar função para ver se esta em lista de favoritos
 		$('#fav_button').checked = fav_list.includes(res);
 		$('#fav_button').change(function () {
@@ -256,61 +385,187 @@ function load_details() {
 			}
 			localStorage.setItem('fav_list', JSON.stringify(fav_list));
 		});
-		$('#fav_label').prop('title', 'Adicionar moeda ' + res.name + ' a favoritos');
+		switch (idioma) {
+			case 'PT':
+				string_insert = 'Adicionar moeda ' + res.name + ' á favoritos';
+				break;
+			case 'EN':
+				string_insert = 'Add coin ' + res.name + ' to favoritos';
+				break;
+			case 'ES':
+				string_insert = 'Adicionar moneda ' + res.name + ' a favoritos';
+				break;
+			default:
+				string_insert = 'Add coin ' + res.name + ' to favoritos';
+				break;
+		}
+		$('#fav_label').prop('title', string_insert);
 		//Data Rank da moeda
 		$('#rank').text('Rank #' + (res.market_cap_rank != null ? res.market_cap_rank : '---'));
-		$('#rank').prop('title', 'Rank no mercado #' + res.market_cap_rank);
+		$('#rank').prop('title', 'Rank #' + res.market_cap_rank);
 		//Data valor da moeda
-		$.each(res.market_data.current_price, function(index, preco){
-			if(index == current_country.toLowerCase()){
+		$.each(res.market_data.current_price, function (index, preco) {
+			if (index == current_country.toLowerCase()) {
 				$('#price').text(coin_type + preco);
-				$('#price').prop('title', 'Preço atual da moeda: ' + coin_type + preco);	
+				switch (idioma) {
+					case 'PT':
+						string_insert = 'Preço atual da moeda: ';
+						break;
+					case 'EN':
+						string_insert = 'Current coin price: ';
+						break;
+					case 'ES':
+						string_insert = 'Precio actual de la moneda: ';
+						break;
+					default:
+						string_insert = 'Current coin price: ';
+						break;
+				}
+				$('#price').prop('title', string_insert + coin_type + preco);
 			}
 		})
 		//Data mudanza preço em 24h
 		var valor = res.market_data.price_change_24h;
-		$('#change_price_24h').text(value_state(0,valor) + coin_type);
-		$('#change_price_24h').addClass(value_state(1,valor));
-		$('#change_price_24h').prop('title', 'Valor ' + value_state(2,valor) + 'da moeda nas ultimas 24h');
+		$('#change_price_24h').text(value_state(0, valor) + coin_type);
+		$('#change_price_24h').addClass(value_state(1, valor));
+		switch (idioma) {
+			case 'PT':
+				string_insert = 'Valor ' + value_state(2, valor) + 'da moeda nas ultimas 24h';
+				break;
+			case 'EN':
+				string_insert = 'Coin value ' + value_state(2, valor) + ' last 24h';
+				break;
+			case 'ES':
+				string_insert = 'Valor ' + value_state(2, valor) + 'de la moneda en las ultimas 24h';
+				break;
+			default:
+				string_insert = 'Coin value ' + value_state(2, valor) + ' last 24h';
+				break;
+		}
+		$('#change_price_24h').prop('title', string_insert);
 		//Data mudanza Percentagem em 24h
 		valor = res.market_data.price_change_percentage_24h;
-		$('#change_por_24h').text(value_state(0,valor) + ' %');
-		$('#change_por_24h').addClass(value_state(1,valor));
-		$('#change_por_24h').prop('title', 'Percentagem ' + value_state(2,valor) + 'da moeda nas ultimas 24h');
+		$('#change_por_24h').text(value_state(0, valor) + ' %');
+		$('#change_por_24h').addClass(value_state(1, valor));
+		switch (idioma) {
+			case 'PT':
+				string_insert = 'Percentagem ' + value_state(2, valor) + 'da moeda nas ultimas 24h';
+				break;
+			case 'EN':
+				string_insert = 'Percentage ' + value_state(2, valor) + ' last 24h';
+				break;
+			case 'ES':
+				string_insert = 'Valor ' + value_state(2, valor) + 'de la moneda en las ultimas 24h';
+				break;
+			default:
+				string_insert = 'Percentage ' + value_state(2, valor) + ' last 24h';
+				break;
+		}
+		$('#change_por_24h').prop('title', string_insert);
 		//Data mudanza Percentagem em 7d
 		valor = res.market_data.price_change_percentage_7d;
-		$('#change_por_7d').text(value_state(0,valor) + ' %');
-		$('#change_por_7d').addClass(value_state(1,valor));
-		$('#change_por_7d').prop('title', 'Percentagem ' + value_state(2,valor) + 'da moeda nos ultimos 7d');
+		$('#change_por_7d').text(value_state(0, valor) + ' %');
+		$('#change_por_7d').addClass(value_state(1, valor));
+		switch (idioma) {
+			case 'PT':
+				string_insert = 'Percentagem ' + value_state(2, valor) + 'da moeda nos ultimos 7d';
+				break;
+			case 'EN':
+				string_insert = 'Percentage ' + value_state(2, valor) + ' last 7d';
+				break;
+			case 'ES':
+				string_insert = 'Valor ' + value_state(2, valor) + 'de la moneda en los ultimos 7d';
+				break;
+			default:
+				string_insert = 'Percentage ' + value_state(2, valor) + ' last 7d';
+				break;
+		}
+		$('#change_por_7d').prop('title', string_insert);
 		//Data mudanza Percentagem em 14d
 		valor = res.market_data.price_change_percentage_14d;
-		$('#change_por_14d').text(value_state(0,valor) + ' %');
-		$('#change_por_14d').addClass(value_state(1,valor));
-		$('#change_por_14d').prop('title', 'Percentagem ' + value_state(2,valor) + 'da moeda nos ultimos 14d');
+		$('#change_por_14d').text(value_state(0, valor) + ' %');
+		$('#change_por_14d').addClass(value_state(1, valor));
+		switch (idioma) {
+			case 'PT':
+				string_insert = 'Percentagem ' + value_state(2, valor) + 'da moeda nos ultimos 14d';
+				break;
+			case 'EN':
+				string_insert = 'Percentage ' + value_state(2, valor) + ' last 14d';
+				break;
+			case 'ES':
+				string_insert = 'Valor ' + value_state(2, valor) + 'de la moneda en los ultimos 14d';
+				break;
+			default:
+				string_insert = 'Percentage ' + value_state(2, valor) + ' last 14d';
+				break;
+		}
+		$('#change_por_14d').prop('title', string_insert);
 		//Data mudanza Percentagem em 30d
 		valor = res.market_data.price_change_percentage_30d;
-		$('#change_por_30d').text(value_state(0,valor) + ' %');
-		$('#change_por_30d').addClass(value_state(1,valor));
-		$('#change_por_30d').prop('title', 'Percentagem ' + value_state(2,valor) + 'da moeda nos ultimos 30d');
+		$('#change_por_30d').text(value_state(0, valor) + ' %');
+		$('#change_por_30d').addClass(value_state(1, valor));
+		switch (idioma) {
+			case 'PT':
+				string_insert = 'Percentagem ' + value_state(2, valor) + 'da moeda nos ultimos 30d';
+				break;
+			case 'EN':
+				string_insert = 'Percentage ' + value_state(2, valor) + ' last 30d';
+				break;
+			case 'ES':
+				string_insert = 'Valor ' + value_state(2, valor) + 'de la moneda en los ultimos 30d';
+				break;
+			default:
+				string_insert = 'Percentage ' + value_state(2, valor) + ' last 30d';
+				break;
+		}
+		$('#change_por_30d').prop('title', string_insert);
 		//Data mudanza Percentagem em 60d
 		valor = res.market_data.price_change_percentage_60d;
-		$('#change_por_60d').text(value_state(0,valor) + ' %');
-		$('#change_por_60d').addClass(value_state(1,valor));
-		$('#change_por_60d').prop('title', 'Percentagem ' + value_state(2,valor) + 'da moeda nos ultimos 60d');
+		$('#change_por_60d').text(value_state(0, valor) + ' %');
+		$('#change_por_60d').addClass(value_state(1, valor));
+		switch (idioma) {
+			case 'PT':
+				string_insert = 'Percentagem ' + value_state(2, valor) + 'da moeda nos ultimos 60d';
+				break;
+			case 'EN':
+				string_insert = 'Percentage ' + value_state(2, valor) + ' last 60d';
+				break;
+			case 'ES':
+				string_insert = 'Valor ' + value_state(2, valor) + 'de la moneda en los ultimos 60d';
+				break;
+			default:
+				string_insert = 'Percentage ' + value_state(2, valor) + ' last 60d';
+				break;
+		}
+		$('#change_por_60d').prop('title', string_insert);
 		//Data mudanza Percentagem em 200d
 		valor = res.market_data.price_change_percentage_200d;
-		$('#change_por_200d').text(value_state(0,valor) + ' %');
-		$('#change_por_200d').addClass(value_state(1,valor));
-		$('#change_por_200d').prop('title', 'Percentagem ' + value_state(2,valor) + 'da moeda nos ultimos 200d');
-		//Data mudanza Percentagem em 200d
+		$('#change_por_200d').text(value_state(0, valor) + ' %');
+		$('#change_por_200d').addClass(value_state(1, valor));
+		switch (idioma) {
+			case 'PT':
+				string_insert = 'Percentagem ' + value_state(2, valor) + 'da moeda nos ultimos 200d';
+				break;
+			case 'EN':
+				string_insert = 'Percentage ' + value_state(2, valor) + ' last 200d';
+				break;
+			case 'ES':
+				string_insert = 'Valor ' + value_state(2, valor) + 'de la moneda en los ultimos 200d';
+				break;
+			default:
+				string_insert = 'Percentage ' + value_state(2, valor) + ' last 200d';
+				break;
+		}
+		$('#change_por_200d').prop('title', string_insert);
+		//Data quantidade no mercado
 		valor = res.market_data.total_supply;
 		$('#total_supply').text(valor);
-		//Data mudanza Percentagem em 200d
+		//Data quantidade maxima do mercado
 		valor = res.market_data.max_supply;
 		$('#max_supply').text(valor);
 		//Data detalhes da moeda
 		$.each(res.description, function (index, description) {
-			if(index == idioma.toLowerCase())
+			if (index == idioma.toLowerCase())
 				$('#details').html(description != '' ? description : 'No data found');
 		})
 		//Data inserir links da moeda
@@ -329,7 +584,7 @@ function load_details() {
 						var link_text = index == 0 ? $('.link_text', section) : original_text_area.clone();
 						$('a', link_text).attr('href', url);
 						$('a', link_text).text(url);
-						$('a', link_text).prop('title', 'Link para ' + url);
+						$('a', link_text).prop('title', 'Link ' + url);
 						$('ul', section).append(link_text);
 					}
 				})
@@ -337,7 +592,7 @@ function load_details() {
 				var link_text = $('.link_text', section);
 				if (link_list.includes('http')) {
 					$('a', link_text).attr('href', link_list);
-					$('a', link_text).prop('title', 'Link para ' + link_list);
+					$('a', link_text).prop('title', 'Link ' + link_list);
 				}
 				$('a', link_text).text(link_list);
 
@@ -353,7 +608,7 @@ function load_details() {
 //Função de processo de dados de pesquisa
 function load_search() {
 	// Caso não encontrar dados de pesquisa, voltar a página principal
-	if(!localStorage.getItem('coin_search')){
+	if (!localStorage.getItem('coin_search')) {
 		location.document = 'index.html';
 	}
 	$.ajax({
@@ -423,7 +678,7 @@ function reload_fav_list() {
 //Carrega o idioma selecionado
 function set_idioma() {
 	var info = localStorage.getItem('idioma')
-	idioma = info == null ? 'PT': info;
+	idioma = info == null ? 'PT' : info;
 	$('.idioma-button').text(idioma);
 }
 
@@ -431,7 +686,7 @@ function set_idioma() {
 function set_continente() {
 	var continente = localStorage.getItem('continente');
 	var moeda = localStorage.getItem('moeda');
-	current_country = continente == null ? 'EUR': continente;
-	coin_type = moeda == null ? '€': moeda;	
+	current_country = continente == null ? 'EUR' : continente;
+	coin_type = moeda == null ? '€' : moeda;
 	$('.moeda-button').text(current_country + coin_type);
 }

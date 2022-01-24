@@ -33,25 +33,23 @@
       </div>
 
       <div class="col-xl-5 col-lg-7 col-md-10 col-sm-10 col-10">
-        <input title="Campo para inserir o nome de uma crypto moeda que quere ver" type="text" id="pesquisa"
-          placeholder="Procurar" class="rounded w-100" />
+        <input type="text" id="pesquisa" class="rounded w-100" />
       </div>
 
       <div class="col-xl-1 col-lg-4 col-md-1 col-md-2 col-sm-2 col-2">
-        <button title="Procurar informação inserida" type="button" id="btSearch"
+        <button type="button" id="btSearch"
           class="w-100 btn btn-primary button-search">&#128269;</button>
       </div>
 
       <div class="col-xl-1 col-lg-4 col-md-4 col-12 my-xl-0 my-3">
-        <button type="button" class="w-100  btn btn-info" onclick="document.location='favoritos.html'"
-          title="Página de favoritos">
+        <button type="button" class="w-100  btn btn-info" onclick="document.location='favoritos.html'" id='btFav'>
           ♥
         </button>
       </div>
 
       <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-6">
         <div class="dropdown">
-          <button title="Selecione idioma" class="w-100 btn btn-primary dropdown-toggle idioma-button" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="w-100 btn btn-primary dropdown-toggle idioma-button" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           </button>
           <ul class="w-100 dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li class="idioma"><a class="dropdown-item" href="#">PT</a></li>
@@ -63,7 +61,7 @@
 
       <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-6">
         <div class="dropdown">
-          <button title="Selecione idioma" class="w-100 btn btn-primary dropdown-toggle moeda-button" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="w-100 btn btn-primary dropdown-toggle moeda-button" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
           </button>
           <ul class="w-100 dropdown-menu" aria-labelledby="dropdownMenuButton2">
             <li class="moeda"><a class="dropdown-item" href="#">EUR€</a></li>
@@ -236,5 +234,6 @@
 
   <!--Scripts-->
   <script src="js/script.js"></script>
+  <script src="js/script.translate.js"></script>
 </body>
 </html>
