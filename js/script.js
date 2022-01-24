@@ -7,6 +7,8 @@ var coin_type = '€';
 var current_page = 1;
 // Guarda o tipo de informação a ser procurada das moedas
 var current_country = 'eur'
+// Guarda o idioma selecionado
+var idioma = 'pt'
 
 var fav_list = new Array();
 //fav_list = JSON.parse(localStorage.getItem('fav_list'));
@@ -33,6 +35,8 @@ var original_link_section = $('.link_section').clone();
 /*------Função on load do página------*/
 $(window).on('load', function () {
 	reload_fav_list();
+	set_idioma();
+	set_continente()
 	if (page_name == 'index.html') {
 		// Carrega os dados no index
 		load_index();
@@ -59,6 +63,23 @@ $('#btSearch').on('click', function () {
 		localStorage.setItem('coin_search', valuePesquisa);
 		window.location.href = 'search.html';
 	}
+})
+
+$('.idioma').on('click', function() {
+	var text = $('a', this).text();
+	$('.idioma-button').text(text);
+	localStorage.setItem('idioma', text);
+	location.reload();
+})
+
+$('.moeda').on('click', function() {
+	var text = $('a', this).text();
+	var moeda = text[3];
+	var continente = text.replace(moeda,'');
+	$('.moeda-button').text(continente + moeda);
+	localStorage.setItem('continente', continente);
+	localStorage.setItem('moeda', moeda);
+	location.reload();
 })
 
 /*------Sistema de troca de página de criptomoedas------*/
@@ -149,7 +170,7 @@ function value_state(type, value) {
 function load_index() {
 	$.ajax({
 		method: 'GET',
-		url: API_url + 'coins/markets?vs_currency=' + current_country +
+		url: API_url + 'coins/markets?vs_currency=' + current_country.toLowerCase() +
 			'&order=market_cap_desc&per_page=100&page=' + current_page +
 			'&sparkline=false'
 	}).done(function (res) {
@@ -240,8 +261,12 @@ function load_details() {
 		$('#rank').text('Rank #' + (res.market_cap_rank != null ? res.market_cap_rank : '---'));
 		$('#rank').prop('title', 'Rank no mercado #' + res.market_cap_rank);
 		//Data valor da moeda
-		$('#price').text(coin_type + res.market_data.current_price.eur);
-		$('#price').prop('title', 'Preço atual da moeda: ' + coin_type + res.market_data.current_price.eur);
+		$.each(res.market_data.current_price, function(index, preco){
+			if(index == current_country.toLowerCase()){
+				$('#price').text(coin_type + preco);
+				$('#price').prop('title', 'Preço atual da moeda: ' + coin_type + preco);	
+			}
+		})
 		//Data mudanza preço em 24h
 		var valor = res.market_data.price_change_24h;
 		$('#change_price_24h').text(value_state(0,valor) + coin_type);
@@ -256,36 +281,38 @@ function load_details() {
 		valor = res.market_data.price_change_percentage_7d;
 		$('#change_por_7d').text(value_state(0,valor) + ' %');
 		$('#change_por_7d').addClass(value_state(1,valor));
-		$('#change_por_7d').prop('title', 'Percentagem ' + value_state(2,valor) + 'da moeda nod ultimos 7d');
+		$('#change_por_7d').prop('title', 'Percentagem ' + value_state(2,valor) + 'da moeda nos ultimos 7d');
 		//Data mudanza Percentagem em 14d
 		valor = res.market_data.price_change_percentage_14d;
 		$('#change_por_14d').text(value_state(0,valor) + ' %');
 		$('#change_por_14d').addClass(value_state(1,valor));
-		$('#change_por_14d').prop('title', 'Percentagem ' + value_state(2,valor) + 'da moeda nod ultimos 14d');
+		$('#change_por_14d').prop('title', 'Percentagem ' + value_state(2,valor) + 'da moeda nos ultimos 14d');
 		//Data mudanza Percentagem em 30d
 		valor = res.market_data.price_change_percentage_30d;
 		$('#change_por_30d').text(value_state(0,valor) + ' %');
 		$('#change_por_30d').addClass(value_state(1,valor));
-		$('#change_por_30d').prop('title', 'Percentagem ' + value_state(2,valor) + 'da moeda nod ultimos 30d');
+		$('#change_por_30d').prop('title', 'Percentagem ' + value_state(2,valor) + 'da moeda nos ultimos 30d');
 		//Data mudanza Percentagem em 60d
 		valor = res.market_data.price_change_percentage_60d;
 		$('#change_por_60d').text(value_state(0,valor) + ' %');
 		$('#change_por_60d').addClass(value_state(1,valor));
-		$('#change_por_60d').prop('title', 'Percentagem ' + value_state(2,valor) + 'da moeda nod ultimos 60d');
+		$('#change_por_60d').prop('title', 'Percentagem ' + value_state(2,valor) + 'da moeda nos ultimos 60d');
 		//Data mudanza Percentagem em 200d
 		valor = res.market_data.price_change_percentage_200d;
 		$('#change_por_200d').text(value_state(0,valor) + ' %');
 		$('#change_por_200d').addClass(value_state(1,valor));
-		$('#change_por_200d').prop('title', 'Percentagem ' + value_state(2,valor) + 'da moeda nod ultimos 200d');
+		$('#change_por_200d').prop('title', 'Percentagem ' + value_state(2,valor) + 'da moeda nos ultimos 200d');
 		//Data mudanza Percentagem em 200d
 		valor = res.market_data.total_supply;
 		$('#total_supply').text(valor);
 		//Data mudanza Percentagem em 200d
 		valor = res.market_data.max_supply;
 		$('#max_supply').text(valor);
-		
 		//Data detalhes da moeda
-		$('#details').html(res.description.en != '' ? res.description.en : 'No data found');
+		$.each(res.description, function (index, description) {
+			if(index == idioma.toLowerCase())
+				$('#details').html(description != '' ? description : 'No data found');
+		})
 		//Data inserir links da moeda
 		$.each(res.links, function (index, link_list) {
 			var section = original_link_section.clone();
@@ -391,4 +418,20 @@ function reload_fav_list() {
 		$('.value', fav_line).prop('title', 'Valor actual da moeda: ' + coin_type + coin.current_price);
 		fav_table.append(fav_line);
 	})
+}
+
+//Carrega o idioma selecionado
+function set_idioma() {
+	var info = localStorage.getItem('idioma')
+	idioma = info == null ? 'PT': info;
+	$('.idioma-button').text(idioma);
+}
+
+//Carrega o continente e o tipo de moeda
+function set_continente() {
+	var continente = localStorage.getItem('continente');
+	var moeda = localStorage.getItem('moeda');
+	current_country = continente == null ? 'EUR': continente;
+	coin_type = moeda == null ? '€': moeda;	
+	$('.moeda-button').text(current_country + coin_type);
 }

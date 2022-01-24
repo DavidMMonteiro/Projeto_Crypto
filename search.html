@@ -7,7 +7,7 @@
   <link rel="icon" type="image/gif" href="imgs/web/logo_invert.jpg">
   <meta name="description" content="Pesquisa as tuas cryptos">
   <!--Estilos página-->
-  <link rel="stylesheet" href="css/style_detalhes.css" type="text/css">
+  <link rel="stylesheet" href="css/style_search.css" type="text/css">
   <link rel="stylesheet" href="css/style_general.css" type="text/css">
   <!--Meta datos-->
   <meta charset="utf-8">
@@ -54,35 +54,31 @@
 
       <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6 col-6">
         <div class="dropdown">
-          <button title="Selecione um idioma" class="w-100 btn btn-primary dropdown-toggle" type="button"
-            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            PT
+          <button title="Selecione idioma" class="w-100 btn btn-primary dropdown-toggle idioma-button" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item">PT</a>
-            <a class="dropdown-item">ES</a>
-            <a class="dropdown-item">EN</a>
-          </div>
+          <ul class="w-100 dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li class="idioma"><a class="dropdown-item" href="#">PT</a></li>
+            <li class="idioma"><a class="dropdown-item" href="#">EN</a></li>
+            <li class="idioma"><a class="dropdown-item" href="#">ES</a></li>
+          </ul>
         </div>
       </div>
 
       <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6 col-6">
         <div class="dropdown">
-          <button title="Selecione uma moeda" class="w-100 btn btn-primary dropdown-toggle" type="button"
-            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            EUR€
+          <button title="Selecione idioma" class="w-100 btn btn-primary dropdown-toggle moeda-button" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item">EUR€</a>
-            <a class="dropdown-item">USD$</a>
-            <a class="dropdown-item">GBP£</a>
-          </div>
+          <ul class="w-100 dropdown-menu" aria-labelledby="dropdownMenuButton2">
+            <li class="moeda"><a class="dropdown-item" href="#">EUR€</a></li>
+            <li class="moeda"><a class="dropdown-item" href="#">USD$</a></li>
+            <li class="moeda"><a class="dropdown-item" href="#">GBP£</a></li>
+          </ul>
         </div>
       </div>
     </div>
 
     <div class="conteudo_home row">
-      <div class="col-md-8 col-12">
+      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
         <table class="table table-striped">
           <thead class="head_table">
             <tr>
@@ -99,9 +95,9 @@
           </thead>
           <tbody class="media-list">
             <tr class="media">
-              <td scope="col">
+              <th scope="col">
                 <span class="rank p-1 rounded-1"></span>
-              </td>
+              </th>
               <td scope="col">
                 <a class="detalhes" href="#head_table">
                   <img id="image" width="32" height="32">
@@ -118,19 +114,19 @@
           </tbody>
         </table>
       </div>
-      <div class="col-md-4 col-12">
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col" colspan="4">
+              <th scope="col" colspan="6">
                 <a title="Ver lista de favoritos em detalhe" href="favoritos.html">Lista de Favoritos</a>
               </th>
             </tr>
             <tr>
               <th scope="col">Rank</th>
               <th scope="col">Logótipo</th>
-              <th scope="col">Nome</th>
-              <th scope="col">Valor Atual</th>
+              <th scope="col" colspan="2" class="right">Nome</th>
+              <th scope="col" colspan="2" class="right">Valor Atual</th>
             </tr>
           </thead>
           <tbody class="fav_list">
@@ -143,15 +139,16 @@
                   <img id="image" width="32" height="32">
                 </a>
               </td>
-              <td>
+              <td colspan="2">
                 <span class="nome"></span>
               </td>
-              <td>
+              <td colspan="2">
                 <span class="value"></span>
               </td>
             </tr>
           </tbody>
         </table>
+        <button type="button" id="btTest" class="btn btn-primary button-search">&#128269;</button>
       </div>
     </div>
 
