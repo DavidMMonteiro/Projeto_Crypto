@@ -10,7 +10,6 @@ $(window).on('load', function () {
     // Vai escolher o tipo de tradução a ser efetuada
     switch (idioma) {
         case 'PT':
-            console.log('Traducindo ao portugues');
             // Tradução do heather
             translate_pt_heather();
             // A página a traducir
