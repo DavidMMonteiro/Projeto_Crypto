@@ -74,6 +74,7 @@
     </div>
 
     <div class="conteudo_home my-3">
+      <h3 id="title_table">Lista de moedas favoritas</h3>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -87,16 +88,16 @@
         </thead>
         <tbody class="media-list">
           <tr class="media">
-            <td scope="col">
+            <th scope="col">
               <span class="rank p-1 rounded-1"></span>
-            </td>
+            </th>
             <td scope="col">
-              <a class="detalhes" href="index.html#head_table">
+              <a class="detalhes" href="favoritos.html#head_table">
                 <img id="image" width="32" height="32">
               </a>
             </td>
             <td scope="col">
-              <a class="detalhes nome" href="index.html#head_table"></a>
+              <a class="detalhes nome" href="favoritos.html#head_table"></a>
             </td>
             <td scope="col" class="right">
               <span class="valor"></span>
@@ -105,7 +106,7 @@
               <span class="change24h"></span>
             </td>
             <td scope="col" class="text-center">
-              <input type="checkbox" class="btn-check" id="fav_button" autocomplete="off">
+              <input type="checkbox" class="btn-check" id="fav_button" autocomplete="off" checked>
               <label id="fav_label" class="btn btn-outline-danger" for="fav_button">♥</label>
             </td>
           </tr>
