@@ -93,7 +93,7 @@
               <th scope="col">Rank</th>
               <th scope="col">Logótipo</th>
               <th scope="col">Nome</th>
-              <th scope="col" class="right">Favoritos</th>
+              <th scope="col">Favoritos</th>
             </tr>
           </thead>
           <tbody class="media-list">
@@ -109,9 +109,12 @@
               <td scope="col">
                 <a class="detalhes nome" href="#head_table"></a>
               </td>
-              <td scope="col" class="right">
-                <input type="checkbox" class="btn-check" id="fav_button" autocomplete="off">
-                <label id="fav_label" class="btn btn-outline-danger" for="fav_button">♥</label>
+              <td scope="col">
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input bt-danger fav_button"  autocomplete="on">
+                  <!--input type="checkbox" class="form-check-input btn-check fav_button"  autocomplete="on">
+                  <label id="fav_label" class="btn btn-outline-danger" for="fav_button">♥</label-->
+                </div>
               </td>
             </tr>
           </tbody>

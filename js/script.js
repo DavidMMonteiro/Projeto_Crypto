@@ -300,11 +300,14 @@ function load_index() {
 			}
 			$('.change24h', liMedia).prop('title', string_insert);
 			// Procesa se a moeda esta como favorita ou não
+			$('.fav_button', liMedia).prop('id', result.id)
+			$('#fav_label', liMedia).attr('for', result.id);
 			$.each(fav_list, function (index, coin) {
 				if (coin.id == result.id)
-					$('#fav_button', liMedia).prop('checked', true);
+					$('#' + result.id, liMedia).prop('checked', true);
 			})
-			$('#fav_button', liMedia).change(function () {
+			$('#' + result.id, liMedia).change(function () {
+				console.log("Changuin state coin: " + result.id)
 				if (this.checked) {
 					if (fav_list == null || !fav_list.includes(result)) {
 						if (fav_list == null) fav_list = [];
@@ -686,11 +689,13 @@ function load_search() {
 			}
 			$('.nome', liMedia).prop('title', string_insert + result.name);
 			// Procesa se a moeda esta como favorita ou não
+			$('.fav_button', liMedia).prop('id', result.id)
+			$('#fav_label', liMedia).attr('for', result.id);
 			$.each(fav_list, function (index, coin) {
 				if (coin.id == result.id)
-					$('#fav_button', liMedia).prop('checked', true);
+					$('#' + result.id, liMedia).prop('checked', true);
 			})
-			$('#fav_button', liMedia).change(function () {
+			$('#' + result.id, liMedia).change(function () {
 				if (this.checked) {
 					if (fav_list == null || !fav_list.includes(result)) {
 						if (fav_list == null) fav_list = [];
@@ -823,7 +828,13 @@ function load_fav_page() {
 			}
 			$('.change24h', liMedia).prop('title', string_insert);
 			// Procesa se a moeda esta como favorita ou não
-			$('#fav_button', liMedia).change(function () {
+			$('.fav_button', liMedia).prop('id', result.id)
+			$('#fav_label', liMedia).attr('for', result.id);
+			$.each(fav_list, function (index, coin) {
+				if (coin.id == result.id)
+					$('#' + result.id, liMedia).prop('checked', true);
+			})
+			$('#' + result.id, liMedia).change(function () {
 				if (this.checked) {
 					if (fav_list == null || !fav_list.includes(result)) {
 						if (fav_list == null) fav_list = [];
