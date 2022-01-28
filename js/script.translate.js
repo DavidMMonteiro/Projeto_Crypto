@@ -166,7 +166,7 @@ function translate_pt_table(){
     $('#heather_rank').prop('title','Ranks das moedas');
     $('#heather_rank').text('Rank');
     $('#heather_logo').prop('title','Logo das moedas');
-    $('#heather_logo').text('Logótipo');
+    $('#heather_logo').text('Logo');
     $('#heather_name').prop('title','Nome das moedas');
     $('#heather_name').text('Nome');
     $('#heather_value').prop('title','Valor das moedas');
@@ -182,7 +182,7 @@ function translate_pt_fav_table(){
     $('#heather_rank_fav').prop('title','Ranks das moedas em favoritos');
     $('#heather_rank_fav').text('Rank');
     $('#heather_logo_fav').prop('title','Logo das moedas em favoritos');
-    $('#heather_logo_fav').text('Logótipo');
+    $('#heather_logo_fav').text('Logo');
     $('#heather_name_fav').prop('title','Nome das moedas em favoritos');
     $('#heather_name_fav').text('Nome');
     $('#heather_value_fav').prop('title','Valor das moedas em favoritos');
@@ -231,12 +231,13 @@ function translate_en_detalhes() {
 
 // Tradução da página favoritos a ingles
 function translate_en_fav() {
-
+    translate_en_table();
 }
 
 // Tradução da página pesquisa a ingles
 function translate_en_search() {
-
+    translate_en_table();
+    translate_en_fav_table();
 }
 
 // Tradução da tabela principal a ingles
@@ -309,12 +310,13 @@ function translate_es_detalhes() {
 
 // Tradução da página favoritos a espanhol
 function translate_es_fav() {
-
+    translate_es_table();
 }
 
 // Tradução da página pesquisa a espanhol
 function translate_es_search() {
-
+    translate_es_table();
+    translate_es_fav_table();
 }
 
 // Tradução da tabela principal a espanhol
