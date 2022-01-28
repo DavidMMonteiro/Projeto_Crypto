@@ -164,6 +164,39 @@ function value_state(type, value) {
 	return output;
 }
 
+// Actualiza a informação das moedas dos favoritos
+function check_coins_fav_list() {
+	// Caso não haber moedas em favoritos não vai contina
+	if (fav_list == null || fav_list.length <= 0)
+		return;
+
+	var list_moedas = '';
+	$.each(fav_list, function (index, coin) {
+		list_moedas += "%2C" + coin.id;
+	});
+	// Atualiza a informação da lista de favoritos
+	$.ajax({
+		method: 'GET',
+		url: API_url + 'coins/markets?vs_currency=' + current_country.toLowerCase() + '&ids=' + list_moedas + '&order=market_cap_desc&per_page=100&page=1&sparkline=false',
+	}).done(function (res) {
+		fav_list = res;
+	})
+	console.log(fav_list)
+	// Ordena a lista pelo Rank
+	fav_list.sort(function (a, b) {
+		if (a.market_cap_rank > b.market_cap_rank || a.market_cap_rank == null)
+			return 1;
+		if (a.market_cap_rank < b.market_cap_rank)
+			return -1;
+		return 0;
+	});
+}
+
+// Verifica o valor do rank da moeda
+function check_rank(rank_value){
+	return rank_value != null ? rank_value : '---';
+} 
+
 /*------Funções Especificas------*/
 
 //Função de processo de dados da página principal
