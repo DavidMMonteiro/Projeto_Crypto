@@ -85,15 +85,15 @@
         <table class="table table-striped">
           <thead class="head_table">
             <tr>
-              <th scope="col" colspan="4">
+              <th scope="col" colspan="6">
                 Moedas encontradas
               </th>
             </tr>
             <tr>
-              <th scope="col">Rank</th>
-              <th scope="col">Logótipo</th>
-              <th scope="col">Nome</th>
-              <th scope="col" class="right">Favoritos</th>
+              <th scope="col" id="heather_rank">Rank</th>
+              <th scope="col" id="heather_logo">Logótipo</th>
+              <th scope="col" id="heather_name" colspan="2">Nome</th>
+              <th scope="col" id="heather_value" colspan="2" class="right">Favoritos</th>
             </tr>
           </thead>
           <tbody class="media-list">
@@ -106,10 +106,10 @@
                   <img id="image" width="32" height="32">
                 </a>
               </td>
-              <td scope="col">
+              <td scope="col" colspan="2">
                 <a class="detalhes nome" href="#head_table"></a>
               </td>
-              <td scope="col" class="right">
+              <td scope="col" colspan="2" class="right">
                 <input type="checkbox" class="btn-check" id="fav_button" autocomplete="off">
                 <label id="fav_label" class="btn btn-outline-danger" for="fav_button">♥</label>
               </td>
@@ -122,14 +122,14 @@
           <thead>
             <tr>
               <th scope="col" colspan="6">
-                <a title="Ver lista de favoritos em detalhe" href="favoritos.html">Lista de Favoritos</a>
+                <a id="link_fav_table" href="favoritos.html">Lista de Favoritos</a>
               </th>
             </tr>
             <tr>
-              <th scope="col">Rank</th>
-              <th scope="col">Logótipo</th>
-              <th scope="col" colspan="2" class="right">Nome</th>
-              <th scope="col" colspan="2" class="right">Valor Atual</th>
+              <th scope="col" id="heather_rank_fav">Rank</th>
+              <th scope="col" id="heather_logo_fav">Logótipo</th>
+              <th scope="col" id="heather_name_fav" colspan="2" class="right">Nome</th>
+              <th scope="col" id="heather_value_fav" colspan="2" class="right">Valor Atual</th>
             </tr>
           </thead>
           <tbody class="fav_list">

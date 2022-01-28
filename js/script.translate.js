@@ -114,21 +114,61 @@ function translate_pt_heather() {
 // Tradução da página index a portugues
 function translate_pt_index() {
     console.log('Traducindo index');
+    $('.first_page').prop('title','Primeira página de moedas');
+    $('.back_page').prop('title','Página de moedas anterior');
+    $('.current_page').prop('title','Página de moedas atual');
+    $('.next_page').prop('title','Página de moedas seguinte');
+    translate_pt_table();
+    $('#link_fav_table').prop('title','Ver lista de favoritos em detalhe');
+    translate_pt_fav_table();
 }
 
 // Tradução da página detalhes a portugues
 function translate_pt_detalhes() {
-
+    $('#title_value').text('Mudança de valor da moeda');
+    $('#div_price_24h').prop('title','Mudança de Preço nas ultimas 24h');
+    $('#text_price_24h').text('Preço nas ultimas ');
+    $('#div_por_24h').prop('title','Percentagem de mudança do preço nas ultimas 24 horas');
+    $('#text_por_24h').text('Percentagem nas ultimas ');
+    $('.text_por_d').text('Percentagem nas ultimas ');
+    var string_principal = 'Percentagem de mudança do preço nos ultimos ';
+    var string_final = ' días';
+    $('#div_por_7d').prop('title',string_principal + '7' + string_final);
+    $('#div_por_14d').prop('title',string_principal + '14' + string_final);
+    $('#div_por_30d').prop('title',string_principal + '30' + string_final);
+    $('#div_por_60d').prop('title',string_principal + '60' + string_final);
+    $('#div_por_200d').prop('title',string_principal + '200' + string_final);
+    $('#div_quant').prop('title', 'Quantidade da moeda no mercado');
+    $('#text_quant').text('Quantidade da moeda no mercado: ');
+    $('#div_max_quant').prop('title', 'Quantidade maximo da moeda no mercado');
+    $('#text_max_quant').text('Quantidade maximo da moeda: ');
 }
 
 // Tradução da página favoritos a portugues
 function translate_pt_fav() {
-
+    translate_pt_table();
 }
 
 // Tradução da página de pesquisa a portugues
 function translate_pt_search() {
+    translate_pt_table();
+    translate_pt_fav_table();
+}
 
+function translate_pt_table(){
+    $('#heather_rank').prop('title','Ranks das moedas');
+    $('#heather_logo').prop('title','Logo das moedas');
+    $('#heather_name').prop('title','Nome das moedas');
+    $('#heather_value').prop('title','Valor das moedas');
+    $('#heather_price').prop('title','Mudança de preço das moedas');
+    $('#heather_fav').prop('title','Moedas em favoritos');
+}
+
+function translate_pt_fav_table(){
+    $('#heather_rank_fav').prop('title','Ranks das moedas em favoritos');
+    $('#heather_logo_fav').prop('title','Logo das moedas em favoritos');
+    $('#heather_name_fav').prop('title','Nome das moedas em favoritos');
+    $('#heather_value_fav').prop('title','Valor das moedas em favoritos');
 }
 
 // Tradução do footer a portugues

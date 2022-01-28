@@ -77,12 +77,12 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col">Rank</th>
-            <th scope="col">Logótipo</th>
-            <th scope="col">Nome</th>
-            <th scope="col" class="right">Valor Atual</th>
-            <th scope="col" class="right">Mudança de Preço - 24h</th>
-            <th scope="col" class="text-center">Favoritos</th>
+            <th scope="col" id="heather_rank">Rank</th>
+            <th scope="col" id="heather_logo">Logótipo</th>
+            <th scope="col" id="heather_name" colspan="2">Nome</th>
+            <th scope="col" id="heather_value" colspan="1" class="right">Valor Atual</th>
+            <th scope="col" id="heather_price" colspan="2" class="right">Mudança de Preço - 24h</th>
+            <th scope="col" id="heather_fav" class="right">Favoritos</th>
           </tr>
         </thead>
         <tbody class="media-list">
@@ -95,16 +95,16 @@
                 <img id="image" width="32" height="32">
               </a>
             </td>
-            <td scope="col">
+            <td scope="col" colspan="2">
               <a class="detalhes nome" href="index.html#head_table"></a>
             </td>
-            <td scope="col" class="right">
+            <td scope="col" colspan="1" class="right">
               <span class="valor"></span>
             </td>
-            <td scope="col" class="right">
+            <td scope="col" colspan="2" class="right">
               <span class="change24h"></span>
             </td>
-            <td scope="col" class="text-center">
+            <td scope="col" class="right">
               <input type="checkbox" class="btn-check" id="fav_button" autocomplete="off">
               <label id="fav_label" class="btn btn-outline-danger" for="fav_button">♥</label>
             </td>
