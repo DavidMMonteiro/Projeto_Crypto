@@ -33,25 +33,23 @@
       </div>
 
       <div class="col-xl-5 col-lg-7 col-md-10 col-sm-10 col-10">
-        <input title="Campo para inserir o nome de uma crypto moeda que quere ver" type="text" id="pesquisa"
-          placeholder="Procurar" class="rounded w-100" />
+        <input type="text" id="pesquisa" class="rounded w-100" />
       </div>
 
       <div class="col-xl-1 col-lg-4 col-md-1 col-md-2 col-sm-2 col-2">
-        <button title="Procurar informação inserida" type="button" id="btSearch"
+        <button type="button" id="btSearch"
           class="w-100 btn btn-primary button-search">&#128269;</button>
       </div>
 
       <div class="col-xl-1 col-lg-4 col-md-4 col-12 my-xl-0 my-3">
-        <button type="button" class="w-100  btn btn-info" onclick="document.location='favoritos.html'"
-          title="Página de favoritos">
+        <button type="button" class="w-100  btn btn-info" onclick="document.location='favoritos.html'" id='btFav'>
           ♥
         </button>
       </div>
 
       <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-6">
         <div class="dropdown">
-          <button title="Selecione idioma" class="w-100 btn btn-primary dropdown-toggle idioma-button" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="w-100 btn btn-primary dropdown-toggle idioma-button" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           </button>
           <ul class="w-100 dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li class="idioma"><a class="dropdown-item" href="#">PT</a></li>
@@ -63,7 +61,7 @@
 
       <div class="col-xl-2 col-lg-4 col-md-4 col-sm-6 col-6">
         <div class="dropdown">
-          <button title="Selecione idioma" class="w-100 btn btn-primary dropdown-toggle moeda-button" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="w-100 btn btn-primary dropdown-toggle moeda-button" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
           </button>
           <ul class="w-100 dropdown-menu" aria-labelledby="dropdownMenuButton2">
             <li class="moeda"><a class="dropdown-item" href="#">EUR€</a></li>
@@ -82,22 +80,20 @@
               <tr>
                 <td colspan="8" class="left">
                   <div>
-                    <a title="Primeira página de moedas" class="first_page change_page"
-                      href="index.html#head_table"></a>
-                    <a title="Página de moedas anterior" class="back_page change_page" href="index.html#head_table"></a>
-                    <span title="Página de moedas atual" class="current_page">Pág. 1</span>
-                    <a title="Página de moedas seguinte" class="next_page change_page"
-                      href="index.html#head_table">></a>
+                    <a class="first_page change_page" href="index.html#head_table"></a>
+                    <a class="back_page change_page" href="index.html#head_table"></a>
+                    <span class="current_page">Pag. 1</span>
+                    <a class="next_page change_page" href="index.html#head_table">></a>
                   </div>
                 </td>
               </tr>
               <tr>
-                <th scope="col">Rank</th>
-                <th scope="col">Logótipo</th>
-                <th scope="col" colspan="2">Nome</th>
-                <th scope="col" colspan="1" class="right">Valor Atual</th>
-                <th scope="col" colspan="2" class="right">Mudança de Preço - 24h</th>
-                <th scope="col" class="right">Favoritos</th>
+                <th scope="col" id="heather_rank"></th>
+                <th scope="col" id="heather_logo"></th>
+                <th scope="col" id="heather_name" colspan="2"></th>
+                <th scope="col" id="heather_value" colspan="1" class="right"></th>
+                <th scope="col" id="heather_price" colspan="2" class="right"></th>
+                <th scope="col" id="heather_fav" class="right"></th>
               </tr>
             </thead>
             <tbody class="media-list">
@@ -119,9 +115,12 @@
                 <td colspan="2" class="right">
                   <span class="change24h"></span>
                 </td>
-                <td class="right">
-                  <input type="checkbox" class="btn-check" id="fav_button" autocomplete="off">
-                  <label id="fav_label" class="btn btn-outline-danger" for="fav_button">♥</label>
+                <td class="right ">
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input bt-danger fav_button"  autocomplete="on">
+                    <!--input type="checkbox" class="form-check-input btn-check fav_button"  autocomplete="on">
+                    <label id="fav_label" class="btn btn-outline-danger" for="fav_button">♥</label-->
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -149,36 +148,35 @@
             <thead>
               <tr>
                 <th scope="col" colspan="6">
-                  <a title="Ver lista de favoritos em detalhe" href="favoritos.html">Lista de Favoritos</a>
+                  <a id="link_fav_table" href="favoritos.html"></a>
                 </th>
               </tr>
               <tr>
-                <th scope="col">Rank</th>
-                <th scope="col">Logótipo</th>
-                <th scope="col" colspan="2" class="right">Nome</th>
-                <th scope="col" colspan="2" class="right">Valor Atual</th>
+                <th scope="col" id="heather_rank_fav"></th>
+                <th scope="col" id="heather_logo_fav"></th>
+                <th scope="col" id="heather_name_fav" colspan="2" class="right"></th>
+                <th scope="col" id="heather_value_fav" colspan="2" class="right"></th>
               </tr>
             </thead>
-            <tbody class="fav_list">
+            <tbody id="fav_list">
               <tr class="fav_line">
-                <td scope="row">
-                  <span class="rank"></span>
+                <th scope="row">
+                  <span class="rank p-1 rounded-1"></span>
                 </td>
-                <td>
-                  <a class="detalhes" href="detalhes.html">
+                <th>
+                  <a class="detalhes" href="index.html#head_table">
                     <img id="image" width="32" height="32">
                   </a>
                 </td>
-                <td colspan="2">
-                  <span class="nome"></span>
+                <td colspan="2" class="right">
+                  <a class="detalhes nome" href="index.html#head_table"></a>
                 </td>
-                <td colspan="2">
+                <td colspan="2" class="right">
                   <span class="value"></span>
                 </td>
               </tr>
             </tbody>
           </table>
-          <button type="button" id="btTest" class="btn btn-primary button-search">&#128269;</button>
         </div>
       </div>
     </div>
@@ -188,16 +186,14 @@
       <div class="row">
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 p-2">
           <h5>Info</h5>
-          <p>CryptoCheck é um site que tem a resposabilidade de expor as moedas do mercado do mundo crypto.
-            A sua principal missão é fazer essa mesmo exposição, capacitando os utilizadores de ver a sua variação em
-            tempo real, para tirar as suas próprias conclusões informativas.</p>
+          <p id="info"></p>
         </div>
 
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 p-2">
           <h5>Web Site Tree</h5>
           <ul>
-            <li title="Link a página principal"><a href="index.html">Home</a></li>
-            <li title="Link a página de favoritos"><a href="favoritos.html">Favoritos</a></li>
+            <li id="index_link"><a href="index.html">Home</a></li>
+            <li id="fav_link"><a href="favoritos.html">Favoritos</a></li>
           </ul>
         </div>
 
@@ -205,7 +201,7 @@
           <h5>Contact</h5>
           <ul>
             <li>
-              Autoros:
+              <span id="contact_names"></span>
               <ul>
                 <li>David Machado Monteiro</li>
                 <li>Bernardo Filipe Custódio Costa</li>
@@ -213,13 +209,13 @@
               </ul>
             </li>
             <li>
-              Contactos:
+              <span id="contact_mails"></span>
               <ul>
-                <li title="Mandar mail para David Machado Monteiro (2211849@my.ipleiria.pt)"><a
+                <li title="Mail to David Machado Monteiro (2211849@my.ipleiria.pt)"><a
                     href="mailto:2211849@my.ipleiria.pt">2211849@my.ipleiria.pt</a></li>
-                <li title="Mandar mail para Bernardo Filipe Custódio Costa (2211876@my.ipleiria.pt)"><a
+                <li title="Mail to Bernardo Filipe Custódio Costa (2211876@my.ipleiria.pt)"><a
                     href="mailto:2211876@my.ipleiria.pt">2211876@my.ipleiria.pt</a></li>
-                <li title="Mandar mail para Fábio Gameiro Gomes (2211886@my.ipleiria.pt)"><a
+                <li title="Mail to Fábio Gameiro Gomes (2211886@my.ipleiria.pt)"><a
                     href="mailto:2211886@my.ipleiria.pt">2211886@my.ipleiria.pt</a></li>
               </ul>
             </li>
@@ -228,7 +224,7 @@
       </div>
       <hr>
       <div class="text-center">
-        <p>Copyright ©2022 | Designed With by <a href="index.html" title="Link página principal">CryptoCheck</a></p>
+        <p>Copyright ©2022 | Designed by <a href="index.html">CryptoCheck</a></p>
         <img src="imgs/Email/logo.jpg" alt="Logótipo" id="logo" class="img-fluid" />
       </div>
     </div>
@@ -236,5 +232,6 @@
 
   <!--Scripts-->
   <script src="js/script.js"></script>
+  <script src="js/script.translate.js"></script>
 </body>
 </html>
