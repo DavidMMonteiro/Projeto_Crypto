@@ -8,7 +8,6 @@
 }
 /*------General-------*/
 body{
-  background-color: blue;
 }
 
 a {
@@ -46,9 +45,6 @@ li{
 
 /*------Footer Section------*/
 .footer { 
-  width: auto;
   display: inline-block;
   font-size:13px; 
-  background-color: #0DA5E9;
-  background-size: auto auto;
 }

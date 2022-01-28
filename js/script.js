@@ -208,16 +208,17 @@ function check_coins_fav_list() {
 	console.log(fav_list)
 	// Ordena a lista pelo Rank
 	fav_list.sort(function (a, b) {
-		if (a.market_cap_rank > b.market_cap_rank) {
+		if (a.market_cap_rank > b.market_cap_rank || a.market_cap_rank == null)
 			return 1;
-		}
-		if (a.market_cap_rank < b.market_cap_rank) {
+		if (a.market_cap_rank < b.market_cap_rank)
 			return -1;
-		}
 		return 0;
 	});
 }
 
+function check_rank(rank_value){
+	return rank_value != null ? rank_value : '---';
+} 
 /*------Funções Especificas------*/
 
 //Função de processo de dados da página principal
@@ -235,8 +236,9 @@ function load_index() {
 			var string_insert = '';
 			// Alterar campos do item
 			liMedia.id = result.id;
-			$('.rank', liMedia).text('#' + result.market_cap_rank);
-			$('.rank', liMedia).prop('title', 'Rank #' + result.market_cap_rank);
+			var coin_rank = check_rank(result.market_cap_rank);
+			$('.rank', liMedia).text('#' + coin_rank);
+			$('.rank', liMedia).prop('title', 'Rank #' + coin_rank);
 			$('.detalhes', liMedia).prop('id', result.id);
 			// Guarda localmente a id da moeda selecionada para carregar os detalhes mais tarde 
 			// e redireciona para á página de detalhes
@@ -437,8 +439,9 @@ function load_details() {
 		}
 		$('#fav_label').prop('title', string_insert);
 		//Data Rank da moeda
-		$('#rank').text('Rank #' + (res.market_cap_rank != null ? res.market_cap_rank : '---'));
-		$('#rank').prop('title', 'Rank #' + res.market_cap_rank);
+		var coin_rank = check_rank(res.market_cap_rank);
+		$('#rank').text('Rank #' + coin_rank);
+		$('#rank').prop('title', 'Rank #' + coin_rank);
 		//Data valor da moeda
 		$.each(res.market_data.current_price, function (index, preco) {
 			if (index == current_country.toLowerCase()) {
@@ -659,7 +662,7 @@ function load_search() {
 			// Alterar campos do item
 			liMedia.id = result.id;
 			// Data rank
-			var coin_rank = result.market_cap_rank != null ? result.market_cap_rank : "---";
+			var coin_rank = check_rank(result.market_cap_rank);
 			$('.rank', liMedia).text('#' + coin_rank);
 			$('.rank', liMedia).prop('title', 'Rank #' + coin_rank);
 			// Data imagem
@@ -752,8 +755,9 @@ function load_fav_page() {
 			var liMedia = cloneMedia.clone();
 			var string_insert = '';
 			// Informação do rank
-			$('.rank', liMedia).text('#' + result.market_cap_rank);
-			$('.rank', liMedia).prop('title', 'Rank #' + result.market_cap_rank);
+			var coin_rank = check_rank(result.market_cap_rank);
+			$('.rank', liMedia).text('#' + coin_rank);
+			$('.rank', liMedia).prop('title', 'Rank #' + coin_rank);
 			// Informação do nome da moeda
 			$('.detalhes', liMedia).prop('id', result.id);
 			// Guarda localmente a id da moeda selecionada para carregar os detalhes mais tarde 
@@ -876,8 +880,9 @@ function reload_fav_list() {
 		// Clone a linha da tabela
 		var fav_line = linha_fav.clone();
 		// Infomação rank da moeda
-		$('.rank', fav_line).text('#' + coin.market_cap_rank);
-		$('.rank', fav_line).prop('title', 'Rank #' + coin.market_cap_rank);
+		var coin_rank = check_rank(coin.market_cap_rank)
+		$('.rank', fav_line).text('#' + coin_rank);
+		$('.rank', fav_line).prop('title', 'Rank #' + coin_rank);
 		// Atribuição da imagem
 		if (coin.image != null)
 			if (typeof (coin.image) != 'string') {
