@@ -110,8 +110,11 @@
                 <a class="detalhes nome" href="#head_table"></a>
               </td>
               <td scope="col" colspan="2" class="right">
-                <input type="checkbox" class="btn-check" id="fav_button" autocomplete="off">
-                <label id="fav_label" class="btn btn-outline-danger" for="fav_button">♥</label>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input bt-danger fav_button"  autocomplete="on">
+                  <!--input type="checkbox" class="form-check-input btn-check fav_button"  autocomplete="on">
+                  <label id="fav_label" class="btn btn-outline-danger" for="fav_button">♥</label-->
+                </div>
               </td>
             </tr>
           </tbody>
@@ -132,26 +135,25 @@
               <th scope="col" id="heather_value_fav" colspan="2" class="right">Valor Atual</th>
             </tr>
           </thead>
-          <tbody class="fav_list">
+          <tbody id="fav_list">
             <tr class="fav_line">
-              <td scope="row">
-                <span class="rank"></span>
+              <th scope="row">
+                <span class="rank p-1 rounded-1"></span>
               </td>
-              <td>
-                <a class="detalhes" href="detalhes.html">
+              <th>
+                <a class="detalhes" href="search.html#head_table">
                   <img id="image" width="32" height="32">
                 </a>
               </td>
-              <td colspan="2">
-                <span class="nome"></span>
+              <td colspan="2" class="right">
+                <a class="detalhes nome" href="search.html#head_table"></a>
               </td>
-              <td colspan="2">
+              <td colspan="2" class="right">
                 <span class="value"></span>
               </td>
             </tr>
           </tbody>
         </table>
-        <button type="button" id="btTest" class="btn btn-primary button-search">&#128269;</button>
       </div>
     </div>
 
