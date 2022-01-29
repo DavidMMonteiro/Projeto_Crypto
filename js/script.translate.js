@@ -177,7 +177,7 @@ function translate_pt_table(){
     $('#heather_fav').text('Favoritos');
 }
 
-// Tradução da tabela favoritos something
+// Tradução da tabela favoritos
 function translate_pt_fav_table(){
     $('#heather_rank_fav').prop('title','Ranks das moedas em favoritos');
     $('#heather_rank_fav').text('Rank');
