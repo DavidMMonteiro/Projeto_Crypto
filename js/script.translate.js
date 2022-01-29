@@ -227,7 +227,23 @@ function translate_en_index() {
 
 // Tradução da página detalhes a ingles
 function translate_en_detalhes() {
-
+    $('#title_value').text('Coins value alteration');
+    $('#div_price_24h').prop('title','Change of price in the last 24h');
+    $('#text_price_24h').text('Price in the last ');
+    $('#div_por_24h').prop('title','Percentage of price change in the  last 24h');
+    $('#text_por_24h').text('Percentage in the last ');
+    $('.text_por_d').text('Percentage in the last ');
+    var string_principal = 'Percentage of price alteration in the last ';
+    var string_final = ' days';
+    $('#div_por_7d').prop('title',string_principal + '7' + string_final);
+    $('#div_por_14d').prop('title',string_principal + '14' + string_final);
+    $('#div_por_30d').prop('title',string_principal + '30' + string_final);
+    $('#div_por_60d').prop('title',string_principal + '60' + string_final);
+    $('#div_por_200d').prop('title',string_principal + '200' + string_final);
+    $('#div_quant').prop('title', 'Amount of coins in the market');
+    $('#text_quant').text('Amount of coins in the market: ');
+    $('#div_max_quant').prop('title', 'Maximum amount of coins in the market');
+    $('#text_max_quant').text('Maximum amount of coins: ');
 }
 
 // Tradução da página favoritos a ingles
@@ -253,25 +269,25 @@ function translate_en_table(){
     $('#heather_value').text('Value');
     $('#heather_price').prop('title','Coin price change in last 24h');
     $('#heather_price').text('Change - 24h');
-    $('#heather_fav').prop('title','Favorites Coins');
+    $('#heather_fav').prop('title','Favorite Coins');
     $('#heather_fav').text('Favorites');
 }
 
 // Tradução da tabela favoritos a ingles
 function translate_en_fav_table(){
-    $('#heather_rank_fav').prop('title','Favorites Coins Rank');
+    $('#heather_rank_fav').prop('title','Favorite Coins Rank');
     $('#heather_rank_fav').text('Rank');
-    $('#heather_logo_fav').prop('title','Favorites Coins Logo');
+    $('#heather_logo_fav').prop('title','Favorite Coins Logo');
     $('#heather_logo_fav').text('Logo');
-    $('#heather_name_fav').prop('title','Favorites Coins Name');
+    $('#heather_name_fav').prop('title','Favorite Coins Name');
     $('#heather_name_fav').text('Name');
-    $('#heather_value_fav').prop('title','Favorites Coins Value');
+    $('#heather_value_fav').prop('title','Favorite Coins Value');
     $('#heather_value_fav').text('Value');
 }
 
 // Tradução do footer a ingles
 function translate_en_footer() {
-    $('.footer #info').text('CryptoCheck its a website with the responsability to show the actual coins in the market. Our principal mission is to give the users the capacity to see the crypto coin variation in real time, letting the user take their own conclusions and information depending on what they search.');
+    $('.footer #info').text('CryptoCheck is a website with the responsability to show the actual coins in the market. Our principal mission is to give the users the capacity to see the crypto coin variation in real time, letting the user take their own conclusions and information depending on what they search.');
     $('.footer #index_link').prop('title', 'Link home page');
     $('.footer #fav_link').prop('title', 'Link favorites page');
     $('.footer #contact_names').text('Creators:');
@@ -284,7 +300,7 @@ function translate_en_footer() {
 // Tradução do heather a espanhol
 function translate_es_heather() {
     $('#pesquisa').attr('placeholder', 'Buscar...');
-    $('#pesquisa').prop('title', 'Campo para inserir el nombre de la moeda que quiere ver');
+    $('#pesquisa').prop('title', 'Campo para inserir el nombre de la moneda que quiere ver');
     $('#btSearch').prop('title', 'Buscar moedas');
     $('#btHome').prop('title', 'Página principal');
     $('#btFav').prop('title', 'Página de favoritos');
@@ -299,14 +315,30 @@ function translate_es_index() {
     $('.current_page').prop('title','Página de monedas actual');
     $('.next_page').prop('title','Proxima página de monedas');
     translate_es_table();
-    $('#link_fav_table').prop('title','Ver Página de favoritos');
-    $('#link_fav_table').text('Lista de Favoritos');
+    $('#link_fav_table').prop('title','Ver página de favoritos');
+    $('#link_fav_table').text('Lista de favoritos');
     translate_es_fav_table();
 }
 
 // Tradução da página detalhes a espanhol
 function translate_es_detalhes() {
-
+    $('#title_value').text('Cambio de valor de moneda');
+    $('#div_price_24h').prop('title','Cambio de precio en las últimas 24h');
+    $('#text_price_24h').text('Precio en las últimas ');
+    $('#div_por_24h').prop('title','Porcentaje de cambio de precio en las últimas 24 horas');
+    $('#text_por_24h').text('Porcentaje en las últimas ');
+    $('.text_por_d').text('Porcentaje en las últimas ');
+    var string_principal = 'Porcentaje de cambio de precio en el último ';
+    var string_final = ' días';
+    $('#div_por_7d').prop('title',string_principal + '7' + string_final);
+    $('#div_por_14d').prop('title',string_principal + '14' + string_final);
+    $('#div_por_30d').prop('title',string_principal + '30' + string_final);
+    $('#div_por_60d').prop('title',string_principal + '60' + string_final);
+    $('#div_por_200d').prop('title',string_principal + '200' + string_final);
+    $('#div_quant').prop('title', 'Cantidad de moneda en el mercado');
+    $('#text_quant').text('Cantidad de moneda en el mercado: ');
+    $('#div_max_quant').prop('title', 'Cantidad máxima de moneda en el mercado');
+    $('#text_max_quant').text('Cantidad máxima de moneda: ');
 }
 
 // Tradução da página favoritos a espanhol
@@ -342,7 +374,7 @@ function translate_es_fav_table(){
     $('#heather_rank_fav').text('Rank');
     $('#heather_logo_fav').prop('title','Logo de las monedas en favoritos');
     $('#heather_logo_fav').text('Logo');
-    $('#heather_name_fav').prop('title','Nome de las monedas en favoritos');
+    $('#heather_name_fav').prop('title','Nombre de las monedas en favoritos');
     $('#heather_name_fav').text('Nombre');
     $('#heather_value_fav').prop('title','Valor de las monedas en favoritos');
     $('#heather_value_fav').text('Valor');
@@ -350,7 +382,7 @@ function translate_es_fav_table(){
 
 // Tradução do footer a espanhol
 function translate_es_footer() {
-    $('.footer #info').text('CryptoCheck es uma página web con la responsabilidad de exponer las crypto monedas del mercado. Nuestra principal misión es permitir a nuestros usuarios de ver la variación de las monedas em tiempo real, sacar sus propias conclusiones y buscar información de monedas en específico.');
+    $('.footer #info').text('CryptoCheck es una página web con la responsabilidad de exponer las crypto monedas del mercado. Nuestra principal misión es permitir a nuestros usuarios de ver la variación de las monedas em tiempo real, sacar sus propias conclusiones y buscar información de monedas en específico.');
     $('.footer #index_link').prop('title', 'Link página principal');
     $('.footer #fav_link').prop('title', 'Link página de favorites');
     $('.footer #contact_names').text('Creadores:');
