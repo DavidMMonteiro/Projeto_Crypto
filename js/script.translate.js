@@ -191,7 +191,7 @@ function translate_pt_fav_table(){
 
 // Tradução do footer a portugues
 function translate_pt_footer() {
-    $('.footer #info').text('CryptoCheck é um site que tem a resposabilidade de expor as moedas do mercado do mundo crypto. A nossa principal missão é fazer é dar capacitando os utilizadores de ver a variação das moedas em tempo real, para tirar as suas próprias conclusões informativa e pesquisar informação das mesmas.');
+    $('.footer #info').text('CryptoCheck é um site que tem a resposabilidade de expor as moedas do mercado do mundo crypto. A nossa principal missão é dar a capacidade aos utilizadores de ver a variação das moedas em tempo real, para tirar as suas próprias conclusões e informações consoate as pesquisas.');
     $('.footer #index_link').prop('title', 'Link a página principal');
     $('.footer #fav_link').prop('title', 'Link a página de favoritos');
     $('.footer #contact_names').text('Autores:');
@@ -204,7 +204,7 @@ function translate_pt_footer() {
 // Tradução do heather a ingles
 function translate_en_heather() {
     $('#pesquisa').attr('placeholder', 'Search...');
-    $('#pesquisa').prop('title', 'Campo para inserir o nome de uma crypto moeda que quere ver');
+    $('#pesquisa').prop('title', 'Field to insert the crypto name you want to search');
     $('#btSearch').prop('title', 'Search info');
     $('#btHome').prop('title', 'Home page');
     $('#btFav').prop('title', 'Favorites page');
@@ -270,7 +270,7 @@ function translate_en_fav_table(){
 
 // Tradução do footer a ingles
 function translate_en_footer() {
-    $('.footer #info').text('CryptoCheck its a website with the responsability to show the actual coins in the market. Our principal mision its to having the capacity to users the variation of crypto coins in real time, letting the user taking their own conclusions e search about coins info.');
+    $('.footer #info').text('CryptoCheck its a website with the responsability to show the actual coins in the market. Our principal mission is to give the users the capacity to see the crypto coin variation in real time, letting the user take their own conclusions and information depending on what they search.');
     $('.footer #index_link').prop('title', 'Link home page');
     $('.footer #fav_link').prop('title', 'Link favorites page');
     $('.footer #contact_names').text('Creators:');
