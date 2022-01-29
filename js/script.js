@@ -217,7 +217,6 @@ function check_coins_fav_list() {
 	});
 }
 
-
 // Verifica o valor do rank da moeda
 function check_rank(rank_value){
 	return rank_value != null ? rank_value : '---';
@@ -739,8 +738,32 @@ function load_search() {
 //Função de processo de dados dos favoritos
 function load_fav_page() {
 	// Caso não haber moedas em favoritos não vai contina
-	if (fav_list == null || fav_list.length <= 0)
+	if (fav_list == null || fav_list.length <= 0) {
+		switch (idioma) {
+			case 'PT':
+				$('#title_table').text('Sem lista de moedas favoritas');
+				break;
+			case 'EN':
+				$('#title_table').text('No coins add as favorite');
+				break;
+			case 'ES':
+				$('#title_table').text('Sin lista de monedas favoritas');
+				break;
+		}
 		return;
+	} else {
+		switch (idioma) {
+			case 'PT':
+				$('#title_table').text('Lista de moedas favoritas');
+				break;
+			case 'EN':
+				$('#title_table').text('Favorite coins');
+				break;
+			case 'ES':
+				$('#title_table').text('Lista de monedas favoritas');
+				break;
+		}
+	}
 
 	var list_moedas = '';
 	$.each(fav_list, function (index, coin) {

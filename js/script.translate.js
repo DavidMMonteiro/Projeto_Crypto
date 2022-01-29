@@ -192,7 +192,7 @@ function translate_pt_fav_table(){
 
 // Tradução do footer a portugues
 function translate_pt_footer() {
-    $('.footer #info').text('CryptoCheck é um site que tem a resposabilidade de expor as moedas do mercado do mundo crypto. A nossa principal missão é dar a capacidade aos utilizadores de ver a variação das moedas em tempo real, para tirar as suas próprias conclusões e informações consoate as pesquisas.');
+    $('.footer #info').text('CryptoChange é um site que tem a resposabilidade de expor as moedas do mercado do mundo crypto. A nossa principal missão é fazer é dar capacitando os utilizadores de ver a variação das moedas em tempo real, para tirar as suas próprias conclusões informativa e pesquisar informação das mesmas.');
     $('.footer #index_link').prop('title', 'Link a página principal');
     $('.footer #fav_link').prop('title', 'Link a página de favoritos');
     $('.footer #contact_names').text('Autores:');
@@ -287,7 +287,7 @@ function translate_en_fav_table(){
 
 // Tradução do footer a ingles
 function translate_en_footer() {
-    $('.footer #info').text('CryptoCheck is a website with the responsability to show the actual coins in the market. Our principal mission is to give the users the capacity to see the crypto coin variation in real time, letting the user take their own conclusions and information depending on what they search.');
+    $('.footer #info').text('CryptoChange its a website with the responsability to show the actual coins in the market. Our principal mision its to having the capacity to users the variation of crypto coins in real time, letting the user taking their own conclusions e search about coins info.');
     $('.footer #index_link').prop('title', 'Link home page');
     $('.footer #fav_link').prop('title', 'Link favorites page');
     $('.footer #contact_names').text('Creators:');
@@ -382,7 +382,7 @@ function translate_es_fav_table(){
 
 // Tradução do footer a espanhol
 function translate_es_footer() {
-    $('.footer #info').text('CryptoCheck es una página web con la responsabilidad de exponer las crypto monedas del mercado. Nuestra principal misión es permitir a nuestros usuarios de ver la variación de las monedas em tiempo real, sacar sus propias conclusiones y buscar información de monedas en específico.');
+    $('.footer #info').text('CryptoChange es uma página web con la responsabilidad de exponer las crypto monedas del mercado. Nuestra principal misión es permitir a nuestros usuarios de ver la variación de las monedas em tiempo real, sacar sus propias conclusiones y buscar información de monedas en específico.');
     $('.footer #index_link').prop('title', 'Link página principal');
     $('.footer #fav_link').prop('title', 'Link página de favorites');
     $('.footer #contact_names').text('Creadores:');
