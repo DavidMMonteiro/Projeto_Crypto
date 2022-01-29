@@ -1,5 +1,6 @@
 'use strict';
 
+// Guarda o idioma atual da página 
 var idioma = localStorage.getItem('idioma');
 // Guarda o nome da página que este atualmente
 var page_name = window.location.pathname.split('/').slice(-1)[0];
@@ -18,7 +19,7 @@ $(window).on('load', function () {
             translate_es();
             break;
         default: // Caso existir um idioma fora dos parametros ira aparecer em ingles by default
-            translate_en();
+            translate_pt();
             break;
     }
 })
