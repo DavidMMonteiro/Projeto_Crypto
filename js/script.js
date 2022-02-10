@@ -192,12 +192,13 @@ function value_state(type, value) {
 // Actualiza a informação das moedas dos favoritos
 function check_coins_fav_list() {
 	// Caso não haber moedas em favoritos não vai contina
-	if (fav_list == null || fav_list.length <= 0)
+	if (fav_list == null || fav_list.length <= 0 || (fav_list.length == 1 && fav_list[0].id == ''))
 		return;
 
 	var list_moedas = '';
 	$.each(fav_list, function (index, coin) {
-		list_moedas += "%2C" + coin.id;
+		if (coin.id != '')
+			list_moedas += "%2C" + coin.id;
 	});
 	// Atualiza a informação da lista de favoritos
 	$.ajax({
@@ -206,7 +207,6 @@ function check_coins_fav_list() {
 	}).done(function (res) {
 		fav_list = res;
 	})
-	console.log(fav_list)
 	// Ordena a lista pelo Rank
 	fav_list.sort(function (a, b) {
 		if (a.market_cap_rank > b.market_cap_rank || a.market_cap_rank == null)
@@ -226,6 +226,10 @@ function check_rank(rank_value){
 
 //Função de processo de dados da página principal
 function load_index() {
+	/*localStorage.clear();
+	console.log("Local Storage Clear")
+	var fav_list = JSON.parse(localStorage.getItem('fav_list'));
+	console.log(fav_list);*/
 	$.ajax({
 		method: 'GET',
 		url: API_url + 'coins/markets?vs_currency=' + current_country.toLowerCase() +
@@ -312,15 +316,17 @@ function load_index() {
 					$('#' + result.id, liMedia).prop('checked', true);
 			})
 			$('#' + result.id, liMedia).change(function () {
-				console.log("Changuin state coin: " + result.id)
+				//console.log("Changuin coin " + result.id + ": " + this.checked);
 				if (this.checked) {
 					if (fav_list == null || !fav_list.includes(result)) {
-						if (fav_list == null) fav_list = [];
+						if (fav_list == null)
+							fav_list = [];
 						fav_list.push(result);
 					}
 				} else {
 					fav_list = fav_list.filter(coin => coin.id !== result.id);
 				}
+				//console.log(fav_list);
 				localStorage.setItem('fav_list', JSON.stringify(fav_list));
 				reload_fav_list();
 			});
@@ -738,7 +744,9 @@ function load_search() {
 //Função de processo de dados dos favoritos
 function load_fav_page() {
 	// Caso não haber moedas em favoritos não vai contina
-	if (fav_list == null || fav_list.length <= 0) {
+	/*console.log("Fav_list estado:");
+	console.log(fav_list);*/
+	if (fav_list == null || fav_list.length <= 0 || (fav_list.length == 1 && fav_list[0].id == '')) {
 		switch (idioma) {
 			case 'PT':
 				$('#title_table').text('Sem lista de moedas favoritas');
@@ -767,7 +775,7 @@ function load_fav_page() {
 
 	var list_moedas = '';
 	$.each(fav_list, function (index, coin) {
-		list_moedas += "%2C" + coin.id;
+		if (coin.id != '') list_moedas += "%2C" + coin.id;
 	});
 	// Atualiza a informação da lista de favoritos
 	$.ajax({
@@ -900,10 +908,15 @@ function load_fav_page() {
 
 //Recarrega a lista de favoritos 
 function reload_fav_list() {
-	check_coins_fav_list();
+	//console.log(fav_list);
 	removeAllChildNodes(document.querySelector('#fav_list'));
+	if (fav_list == null || fav_list.length <= 0 || (fav_list.length == 1 && fav_list[0].id == ''))
+		return;
+	check_coins_fav_list();
 	var string_input = '';
 	$.each(fav_list, function (index, coin) {
+		if (coin.id == '')
+			return true;
 		// Clone a linha da tabela
 		var fav_line = linha_fav.clone();
 		// Infomação rank da moeda
